@@ -32,7 +32,7 @@
 <div id="map"></div>
 <br />
 
-<a asp-controller="Home" asp-action="Crear" class="btn btn-primary btn-modal-action"><i class="fa fa-plus"></i> Agregar</a>
+<a asp-controller="Home" asp-action="Crear" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar</a>
 @*<h1>Esquema</h1>
     <ul>
         @foreach (var p in Repository.List<Productor>(new ProductorSpec(x => true)))
@@ -89,6 +89,7 @@
                 center: { lat: centroAreaAEditar.y, lng: centroAreaAEditar.x },
                 zoom: 17
             });
+            
 
             //Parseamos el string con Wicket para agregarlo al mapa
             var areaExistenteWKT = new Wkt.Wkt();
