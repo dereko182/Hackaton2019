@@ -1,20 +1,13 @@
-﻿@using CleanArchitecture.Core.Entities
-@using CleanArchitecture.Core.Interfaces
-@inject IRepository Repository
-@{
+﻿@{
     ViewData["Title"] = "Clean DDD Architecture Sample";
 }
 
 <div class="row">
-    <div class="col-md-6">
-        <h2>Ranchos</h2>
 
-        <ul>
-            @foreach (var r in Repository.List<Rancho>())
-            {
-                <li>@r.Nombre</li>
-            }
-        </ul>
-
+    
+    <div class="center-block" style="padding-top:10%">
+        <h2>TEAM MONOBITS</h2>
+        <h1>HACKATON 2019</h1>
     </div>
+
 </div>
