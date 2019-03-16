@@ -39,7 +39,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-               Incidencias de plagas durante el 2018
+                Incidencias de plagas durante el 2018
             </div>
             <div class="card-body">
                 <ejs-chart id="container2">
@@ -54,7 +54,41 @@
             </div>
         </div>
     </div>
-    
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                Estatus de planes de siembra
+            </div>
+            <div class="card-body">
+                <ejs-accumulationchart id="container6">
+                    <e-accumulation-series-collection>
+                        <e-accumulation-series dataSource="ViewBag.chartData6" xName="xValue" yName="yValue">
+                        </e-accumulation-series>
+                    </e-accumulation-series-collection>
+                </ejs-accumulationchart>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                Productividad de los planes de siembra
+            </div>
+            <div class="card-body">
+                <ejs-chart id="container7">
+                    <e-chart-primaryxaxis valueType="Category">
+                    </e-chart-primaryxaxis>
+                    <e-series-collection>
+                        <e-series name="Productividad de los planes de siembra" xName="xValue" yName="yValue" dataSource="ViewBag.chartData7"
+                                  type="@Syncfusion.EJ2.Charts.ChartSeriesType.Column">
+                        </e-series>
+                    </e-series-collection>
+                </ejs-chart>
+            </div>
+        </div>
+    </div>
+
+
     <div class="col-lg-6">
         <div class="card">
             <div class="card-header">
@@ -71,4 +105,4 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
