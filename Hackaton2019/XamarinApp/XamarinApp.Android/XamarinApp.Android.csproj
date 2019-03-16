@@ -59,6 +59,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfBackdrop">
       <Version>16.4.0.54</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfChart">
+      <Version>16.4.0.54</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.4.859</Version>
     </PackageReference>
