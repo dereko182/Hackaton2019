@@ -7,6 +7,12 @@ using System.Linq;
 
 namespace CleanArchitecture.Web.Controllers.Api
 {
+    public class B
+    {
+        public int Id { get; set; }
+        public string Estado { get; set; }
+    }
+
     [Produces("application/json")]
     [Route("api/labores")]
     public class LaboresController : Controller
@@ -64,7 +70,7 @@ namespace CleanArchitecture.Web.Controllers.Api
         }
 
         [HttpPost]
-        public IActionResult CambiarEstado(int id, string estado)
+        public IActionResult CambiarEstado([FromBody] B model)
         {
             var x = _repository.List<Parcela>().FirstOrDefault();
 
@@ -86,7 +92,7 @@ namespace CleanArchitecture.Web.Controllers.Api
 
             _repository.Update(x);
 
-            return Ok();
+            return Ok(true.ToString());
         }
     }
 
