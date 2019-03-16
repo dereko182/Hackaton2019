@@ -3,6 +3,6 @@
 namespace SharedModels
 {
     public class RanchoModel : Rancho
-    {
+    { 
     }
 }

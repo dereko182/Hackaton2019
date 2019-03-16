@@ -23,6 +23,31 @@
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+
+            <Style TargetType="Button" x:Key="PrimaryButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource Secondary}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style TargetType="Button" x:Key="SecondaryButton">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="{StaticResource Secondary}" />
+                <Setter Property="BorderColor" Value="{StaticResource Secondary}" />
+                <Setter Property="BorderWidth" Value="2" />
+            </Style>
+            <Style TargetType="Button" x:Key="SecondaryButtonTransparent">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource Secondary}" />
+            </Style>
+            <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="{StaticResource PrimaryButton}"/>
+            </Style>
+            <Style TargetType="Button" x:Key="SecondaryButtonTransparentOutline">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="{StaticResource Secondary}"></Setter>
+                <Setter Property="BorderWidth" Value="1"></Setter>
+                <Setter Property="TextColor" Value="White" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
