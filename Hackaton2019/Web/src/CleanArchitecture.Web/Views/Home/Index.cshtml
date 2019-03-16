@@ -13,6 +13,7 @@
     foreach (var Parcela in rancho.Lotes.FirstOrDefault().Parcelas)
     {
         ranchosExistentes = Parcela.Poligono + "|" + ranchosExistentes;
+        colores = Parcela.Color + "|" + colores;
     }
 }
 
@@ -29,7 +30,9 @@
 <input type="hidden" id="colores" value="@colores"/>
 
 <div id="map"></div>
+<br />
 
+<a asp-controller="Home" asp-action="Crear" class="btn btn-primary btn-modal-action"><i class="fa fa-plus"></i> Agregar</a>
 @*<h1>Esquema</h1>
     <ul>
         @foreach (var p in Repository.List<Productor>(new ProductorSpec(x => true)))
@@ -131,12 +134,12 @@
                     strokeColor: '#000000',
                     strokeOpacity: 0.8,
                     strokeWeight: 2,
-                    fillColor: '#000000',
+                    fillColor: colores[0],
                     fillOpacity: 0.35
                 };
 
                 poligonoAreaExistente.setOptions(polyExistenteOptions);
-
+                    colores.shift();
             });
         }
     </script>
