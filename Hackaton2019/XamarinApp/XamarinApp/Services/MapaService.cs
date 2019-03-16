@@ -1,10 +1,8 @@
-﻿using CleanArchitecture.Core.Entities;
-using GeoAPI.Geometries;
+﻿using GeoAPI.Geometries;
 using NetTopologySuite.Geometries;
 using NetTopologySuite.IO;
 using RestSharp;
-using System;
-using System.Collections.Generic;
+using SharedModels;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -22,11 +20,11 @@ namespace XamarinApp.Services
             _geometryService = new GeometryService();
         }
 
-        public async Task<Rancho> ObtenerRancho(int ranchoId)
+        public async Task<RanchoModel> ObtenerRancho(int ranchoId)
         {
             var request = new RestRequest("api/ObtenerRancho/{id}", Method.GET);
             request.AddUrlSegment("id", ranchoId);
-            var response = await _restClient.ExecuteTaskAsync<Rancho>(request);
+            var response = await _restClient.ExecuteTaskAsync<RanchoModel>(request);
 
             if (response.StatusCode != HttpStatusCode.OK)
                 return null;

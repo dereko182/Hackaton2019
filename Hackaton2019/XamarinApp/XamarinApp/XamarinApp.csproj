@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\SharedModels\SharedModels.csproj" />
+    <ProjectReference Include="..\..\Web\src\CleanArchitecture.Core\CleanArchitecture.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

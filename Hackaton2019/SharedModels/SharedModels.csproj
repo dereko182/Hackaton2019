@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Web\src\CleanArchitecture.Core\CleanArchitecture.Core.csproj" />
+  </ItemGroup>
+
 </Project>
