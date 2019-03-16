@@ -10,10 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
+    <PackageReference Include="Corcav.Behaviors" Version="2.3.7" />
     <PackageReference Include="NetTopologySuite" Version="1.15.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.0" />
     <PackageReference Include="RestSharp" Version="106.6.9" />
     <PackageReference Include="Syncfusion.Xamarin.SfBackdrop" Version="16.4.0.54" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.4.859" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
     <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.0.4" />
     <PackageReference Include="Xamarin.Forms.GoogleMaps.Bindings" Version="2.2.0" />  
@@ -25,8 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Labores.xaml.cs">
-      <DependentUpon>Labores.xaml</DependentUpon>
+    <Compile Update="Views\LaboresPage.xaml.cs">
+      <DependentUpon>LaboresPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

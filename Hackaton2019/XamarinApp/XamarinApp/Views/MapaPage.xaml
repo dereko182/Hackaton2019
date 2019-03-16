@@ -5,25 +5,56 @@
     xmlns:backdrop="clr-namespace:Syncfusion.XForms.Backdrop;assembly=Syncfusion.SfBackdrop.XForms"
     xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
     xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:vm="clr-namespace:XamarinApp.ViewModels"
+    xmlns:behaviors="clr-namespace:XamarinApp.Behaviors"
+    xmlns:b="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
     x:Class="XamarinApp.Views.MapaPage"
     Title="Mapa"
     IsBackLayerRevealed="False" 
     BackLayerRevealOption="Auto" x:Name="backdropPage">
+    <b:Interaction.Behaviors>
+        <b:BehaviorCollection>
+            <b:EventToCommand Command="{Binding AppearingCommand}" EventName="Appearing"/>
+        </b:BehaviorCollection>
+    </b:Interaction.Behaviors>
     <ContentPage.BindingContext>
         <vm:MapaViewModel/>
     </ContentPage.BindingContext>
     <backdrop:SfBackdropPage.BackLayer>
         <backdrop:BackdropBackLayer Margin="0,0,0,-56">
-            <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White" x:Name="slBackLayer">
-            </StackLayout>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <Grid BackgroundColor="White">
+                    <StackLayout Orientation="Vertical" Margin="0">
+                        <Image Source="parcela.jpg" HorizontalOptions="FillAndExpand"></Image>
+                        <StackLayout Orientation="Vertical" Margin="16" Spacing="8">
+                            <Label Text="{Binding ParcelaSeleccionada.Nombre}"
+                           TextColor="Black"
+                           FontSize="Large"                                   
+                           FontAttributes="Bold"/>
+                            <Label Text="{Binding Rancho.Nombre}"
+                           TextColor="Black"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                            <BoxView Color="LightGray" HeightRequest="1"/>
+                            <Label Text="Ultima labor realizada" FontSize="Medium" TextColor="Black"/>
+                            <Label Text="Preparación de terreno - Pega de surcos y bordos" FontSize="Medium"></Label>
+                            <Label Text="Labor actual" FontSize="Medium" TextColor="Black"/>
+                            <Label Text="Preparación de terreno - Bordeo y canalización" FontSize="Medium"></Label>
+                            <Label Text="Proxima labor" FontSize="Medium" TextColor="Black"/>
+                            <Label Text="Siembra - Siembra" FontSize="Medium"></Label>
+                            <Button Style="{StaticResource PrimaryButton}" Text="Ver labores pendientes" HorizontalOptions="FillAndExpand" Command="{Binding VerLaboresCommand}"></Button>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
         </backdrop:BackdropBackLayer>
     </backdrop:SfBackdropPage.BackLayer>
     <backdrop:SfBackdropPage.FrontLayer>
         <backdrop:BackdropFrontLayer>
             <StackLayout VerticalOptions="FillAndExpand">
                 <maps:Map x:Name="map"
-                      InitialCameraUpdate="32.5394109, -115.0873447, 15, 0, 0" MapType="Satellite" HasRotationEnabled="False"
+                      InitialCameraUpdate="32.5393747, -115.0873448, 15, 0, 0" MapType="Satellite" HasRotationEnabled="False"
                       VerticalOptions="FillAndExpand">
                     <maps:Map.Behaviors>
                         <bindings:MapClickedToCommandBehavior Command="{Binding MapClickedCommand}"/>
