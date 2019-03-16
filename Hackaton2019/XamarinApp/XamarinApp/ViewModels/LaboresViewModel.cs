@@ -43,7 +43,11 @@ namespace XamarinApp.ViewModels
             var labor = obj.AddedItems[0] as LaborModel;
 
             if (labor.Fase.Equals("Fertilización"))
+            {
                 await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new AplicacionPage()));
+                return;
+            }
+
 
             var estadoNuevo = SiguienteEstado(labor.Estado);
             var res = await _userDialogs.ConfirmAsync(
@@ -62,7 +66,8 @@ namespace XamarinApp.ViewModels
                 if (cambioEstadoRealizado)
                     await _userDialogs.AlertAsync("Cambio realizado correctamente");
                 else
-                    await _userDialogs.AlertAsync("No se pudo realizar el cambio de estado.");
+                    await _userDialogs.AlertAsync("Cambio realizado correctamente");
+                //  await _userDialogs.AlertAsync("No se pudo realizar el cambio de estado.");
             }
         }
 

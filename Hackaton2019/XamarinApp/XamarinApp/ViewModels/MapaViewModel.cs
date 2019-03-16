@@ -45,10 +45,16 @@ namespace XamarinApp.ViewModels
         public Command<InfoWindowClickedEventArgs> InfoClickedCommand => new Command<InfoWindowClickedEventArgs>(ExecuteInfo);
         public Command AppearingCommand => new Command(async () => await ExecuteAppearingCommand());
         public Command VerLaboresCommand => new Command(async () => await ExecuteVerLabores());
+        public Command VerReportesCommand => new Command(async () => await ExecuteVerReportes());
 
         private async Task ExecuteVerLabores()
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new LaboresPage(new LaboresViewModel())));
+        }
+        
+        private async Task ExecuteVerReportes()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new ChartPage()));
         }
 
         public MapaViewModel()

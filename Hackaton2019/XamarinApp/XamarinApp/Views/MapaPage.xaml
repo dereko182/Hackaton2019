@@ -44,6 +44,7 @@
                             <Label Text="Proxima labor" FontSize="Medium" TextColor="Black"/>
                             <Label Text="Siembra - Siembra" FontSize="Medium"></Label>
                             <Button Style="{StaticResource PrimaryButton}" Text="Ver labores pendientes" HorizontalOptions="FillAndExpand" Command="{Binding VerLaboresCommand}"></Button>
+                            <Button Style="{StaticResource PrimaryButton}" Text="Ver reporte" HorizontalOptions="FillAndExpand" Command="{Binding VerReportesCommand}"></Button>
                         </StackLayout>
                     </StackLayout>
                 </Grid>

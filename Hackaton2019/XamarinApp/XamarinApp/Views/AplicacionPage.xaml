@@ -36,7 +36,7 @@
                                    MappingName="ShipCity" />
                     </sync:SfDataGrid.Columns>
                 </sync:SfDataGrid>
-                <Button Style="{StaticResource PrimaryButton}" Text="Aplicar" HorizontalOptions="FillAndExpand" Command="{Binding VerLaboresCommand}"></Button>
+                <Button Style="{StaticResource PrimaryButton}" Text="Aplicar" HorizontalOptions="FillAndExpand" Command="{Binding AplicarRecetaCommand}"></Button>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

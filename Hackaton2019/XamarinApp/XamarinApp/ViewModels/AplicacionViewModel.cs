@@ -1,14 +1,20 @@
-﻿using MvvmHelpers;
+﻿using Acr.UserDialogs;
+using MvvmHelpers;
 using SharedModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace XamarinApp.ViewModels
 {
     public class AplicacionViewModel : BaseViewModel
     {
+        private readonly IUserDialogs _userDialogs;
+
+       public Command AplicarRecetaCommand => new Command(async () => await ExecuteAplicarReceta());
+
         private ObservableCollection<OrderInfo> _productosPorReceta;
         public ObservableCollection<OrderInfo> ProductosPorReceta
         {
@@ -25,8 +31,14 @@ namespace XamarinApp.ViewModels
 
         public Command CambioRecetaCommand => new Command(ExecuteCambioReceta);
 
+        private async Task ExecuteAplicarReceta()
+        {
+            await _userDialogs.AlertAsync("Receta aplicada correctamente");
+        }
+
         public AplicacionViewModel()
         {
+            _userDialogs = UserDialogs.Instance;
             ProductosPorReceta = new ObservableCollection<OrderInfo>();
         }
 
