@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Theme.Splash" parent="MainTheme.Base">
+    <item name="android:windowBackground">@drawable/agrofy</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+</resources>
