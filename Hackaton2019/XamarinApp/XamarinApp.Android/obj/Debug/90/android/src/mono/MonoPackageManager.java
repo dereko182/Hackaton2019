@@ -150,6 +150,7 @@ class MonoPackageManager_Resources {
 		"Xamarin.GooglePlayServices.Maps.dll",
 		"Xamarin.GooglePlayServices.Tasks.dll",
 		"XamarinApp.dll",
+		"SharedModels.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "4e3ad7f21831808e8c2b9aa8192e19cb41044c9f"
+    "signature": "8bb1919ef9fce4c15580a16011a43f345d9298d1"
   },
   "compilationOptions": {},
   "targets": {
@@ -12,7 +12,7 @@
           "NETStandard.Library": "2.0.3",
           "NetTopologySuite": "1.15.2",
           "Refractored.MvvmHelpers": "1.3.0",
-          "RestSharp": "106.6.9",
+          "SharedModels": "1.0.0",
           "Syncfusion.Xamarin.SfBackdrop": "16.4.0.54",
           "Xamarin.Forms": "3.4.0.1008975",
           "Xamarin.Forms.GoogleMaps": "3.0.4",
@@ -86,14 +86,6 @@
           }
         }
       },
-      "RestSharp/106.6.9": {
-        "runtime": {
-          "lib/netstandard2.0/RestSharp.dll": {
-            "assemblyVersion": "106.6.9.0",
-            "fileVersion": "106.6.9.0"
-          }
-        }
-      },
       "Syncfusion.Licensing/16.4.0.54": {
         "runtime": {
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {
@@ -164,6 +156,11 @@
             "fileVersion": "2.2.0.0"
           }
         }
+      },
+      "SharedModels/1.0.0": {
+        "runtime": {
+          "SharedModels.dll": {}
+        }
       }
     }
   },
@@ -229,13 +226,6 @@
       "path": "refractored.mvvmhelpers/1.3.0",
       "hashPath": "refractored.mvvmhelpers.1.3.0.nupkg.sha512"
     },
-    "RestSharp/106.6.9": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/IAQTwlnlQcjlIyvelf+rhQcCRPy/r/0MftpNbff/D7PZVnmVXE4AnHk/F4NJJJEZbI4M+QTglB+xFkAyzr+9A==",
-      "path": "restsharp/106.6.9",
-      "hashPath": "restsharp.106.6.9.nupkg.sha512"
-    },
     "Syncfusion.Licensing/16.4.0.54": {
       "type": "package",
       "serviceable": true,
@@ -277,6 +267,11 @@
       "sha512": "sha512-wGonaamt/7K/RKfPzYl9RN7xNvLoj0axIe2igjNZaKMaAiK0y8JXE9mfgTHJx4Re1qEW8i889LAOIB0eL770tQ==",
       "path": "xamarin.forms.googlemaps.bindings/2.2.0",
       "hashPath": "xamarin.forms.googlemaps.bindings.2.2.0.nupkg.sha512"
+    },
+    "SharedModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

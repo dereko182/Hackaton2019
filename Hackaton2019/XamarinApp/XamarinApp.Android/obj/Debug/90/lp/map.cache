@@ -43,6 +43,7 @@ Xamarin.GooglePlayServices.Maps
 Xamarin.GooglePlayServices.Tasks
 XamarinApp
 netstandard
+SharedModels
 System.Resources.ResourceManager
 System.Reflection.Extensions
 System.Diagnostics.Tools

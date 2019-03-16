@@ -20,5 +20,5 @@ AndroidCreatePackagePerAbi=
 OS=Windows_NT
 DesignTimeBuild=
 AndroidIncludeDebugSymbols=True
-AdbTarget=-s 00cd2a7a0904
+AdbTarget=-s ZL5229M6TX
 AdbOptions=

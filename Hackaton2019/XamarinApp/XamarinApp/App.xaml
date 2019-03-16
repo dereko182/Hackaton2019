@@ -11,6 +11,14 @@
             <Color x:Key="Secondary">#6ca642</Color>
             <Color x:Key="SecondaryDark">#3c7712</Color>
             <Color x:Key="SecondaryLight">#9dd870</Color>
+            
+            <Color x:Key="BlackSecondaryText">#8B000000</Color>
+            <Color x:Key="BlackPrimaryText">#DC000000</Color>
+            
+            <x:Double x:Key="TextPrimary">16</x:Double>
+            <x:Double x:Key="TextSecondary">14</x:Double>
+            
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="BarTextColor" Value="White" />
