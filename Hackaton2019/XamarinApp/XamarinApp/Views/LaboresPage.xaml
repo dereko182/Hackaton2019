@@ -1,56 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinApp.Views.LaboresPage"
-             xmlns:vm="clr-namespace:XamarinApp.ViewModels"
-             Title="{Binding Title}">
-
-    <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-        <StackLayout IsVisible="{Binding IsBusy}"
-                         HorizontalOptions="Center"
-                         Padding="16"
-                         AbsoluteLayout.LayoutFlags="PositionProportional"
-                         AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
-            <ActivityIndicator IsRunning="{Binding IsBusy}" />
-        </StackLayout>
-        <StackLayout
-                IsVisible ="{Binding MostrarOrden}"
-                AbsoluteLayout.LayoutFlags="All"
-                Spacing="0"
-                AbsoluteLayout.LayoutBounds="0,0,1,1"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand">
-            <ListView 
-                AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0,0,1,1"
-                ItemsSource="{Binding Labores}"
-                IsPullToRefreshEnabled="True"  
-                VerticalOptions="FillAndExpand"
-                HasUnevenRows="true" 
-                IsGroupingEnabled="true"
-                CachingStrategy="RecycleElement">
-                <ListView.GroupHeaderTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Label Margin="5" Text="{Binding Heading}" FontSize="{StaticResource TextPrimary}" FontAttributes="Bold"/>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.GroupHeaderTemplate>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="16, 8" ColumnSpacing="16">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"></RowDefinition>
-                                    <RowDefinition Height="Auto"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Label Grid.Row="0" Text="{Binding Nombre}" FontSize="{StaticResource TextPrimary}" TextColor="{StaticResource BlackPrimaryText}"/>
-                                <Label Grid.Row="1" Text="{Binding Nombre}" FontSize="{StaticResource TextSecondary}" TextColor="{StaticResource BlackSecondaryText}"/>
+             xmlns:local="clr-namespace:XamarinApp;assembly=XamarinApp"
+             xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:dataSource="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
+             xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+              xmlns:behaviors1="clr-namespace:XamarinApp.Behaviors"
+             x:Class="XamarinApp.Views.LaboresPage">
+    <behaviors:Interaction.Behaviors>
+        <behaviors:BehaviorCollection>
+            <behaviors:EventToCommand Command="{Binding CargarDatosCommand}" EventName="Appearing" />
+        </behaviors:BehaviorCollection>
+    </behaviors:Interaction.Behaviors>
+    <ContentPage.Content>
+        <listView:SfListView x:Name="listView" ItemSize="70" GroupHeaderSize="60" SelectionGesture="Tap"
+                           ItemsSource="{Binding Labores}" ItemSpacing="0,0,5,0" SelectionMode="SingleDeselect" AllowGroupExpandCollapse="True" IsStickyGroupHeader="True" SelectionBackgroundColor="{StaticResource SecondaryLight}">
+            <listView:SfListView.Behaviors>
+                <behaviors1:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding CambiarEstadoCommand}"/>
+            </listView:SfListView.Behaviors>
+            <listView:SfListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid BackgroundColor="{StaticResource Primary}">
+                                <Label Text="{Binding Key}" TextColor="#e4e4e4" FontSize="16" FontAttributes="Bold" Margin="10" VerticalOptions="Center" HorizontalOptions="Start"/>
                             </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            </StackLayout>
-            </AbsoluteLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </listView:SfListView.GroupHeaderTemplate>
+            <listView:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid x:Name="grid" RowSpacing="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="1" />
+                                </Grid.RowDefinitions>
+                                <Grid RowSpacing="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0"
+                                          RowSpacing="1"
+                                          Padding="10,0,0,0"
+                                          VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+                                        <Label LineBreakMode="NoWrap"
+                                               TextColor="{StaticResource BlackPrimaryText}"
+                                               Text="{Binding Nombre}">
+                                            <Label.FontSize>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <OnPlatform.Android>
+                                                        <OnIdiom x:TypeArguments="x:Double"
+                                                                 Phone="16"
+                                                                 Tablet="18" />
+                                                    </OnPlatform.Android>
+                                                    <OnPlatform.iOS>
+                                                        <OnIdiom x:TypeArguments="x:Double"
+                                                                 Phone="16"
+                                                                 Tablet="18" />
+                                                    </OnPlatform.iOS>
+                                                </OnPlatform>
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                               TextColor="{StaticResource BlackSecondaryText}"
+                                               LineBreakMode="NoWrap"
+                                               Text="{Binding Fecha}">
+                                            <Label.FontSize>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <OnPlatform.Android>
+                                                        <OnIdiom x:TypeArguments="x:Double"
+                                                                 Phone="12"
+                                                                 Tablet="14" />
+                                                    </OnPlatform.Android>
+                                                    <OnPlatform.iOS>
+                                                        <OnIdiom x:TypeArguments="x:Double"
+                                                                 Phone="12"
+                                                                 Tablet="14" />
+                                                    </OnPlatform.iOS>
+                                                </OnPlatform>
+                                            </Label.FontSize>
+                                        </Label>
+                                    </Grid>
+
+
+                                    <Label Grid.Column="1" Margin="10" LineBreakMode="NoWrap"
+                                               TextColor="{StaticResource BlackPrimaryText}"
+                                               Text="{Binding Estado}">
+                                        <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <OnPlatform.Android>
+                                                    <OnIdiom x:TypeArguments="x:Double"
+                                                                 Phone="16"
+                                                                 Tablet="18" />
+                                                </OnPlatform.Android>
+                                                <OnPlatform.iOS>
+                                                    <OnIdiom x:TypeArguments="x:Double"
+                                                                 Phone="16"
+                                                                 Tablet="18" />
+                                                </OnPlatform.iOS>
+                                            </OnPlatform>
+                                        </Label.FontSize>
+                                    </Label>
+                                </Grid>
+                                <StackLayout Grid.Row="1" BackgroundColor="Gray" HeightRequest="1"/>
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </listView:SfListView.ItemTemplate>
+        </listView:SfListView>
+    </ContentPage.Content>
 </ContentPage>

@@ -65,6 +65,11 @@ namespace XamarinApp.Droid
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::XamarinApp.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglecollapseicon = global::XamarinApp.Droid.Resource.Drawable.inputlayout_togglecollapseicon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglevisibleicon = global::XamarinApp.Droid.Resource.Drawable.inputlayout_togglevisibleicon;
+			global::Syncfusion.ListView.XForms.Android.Resource.Drawable.inputlayout_togglecollapseicon = global::XamarinApp.Droid.Resource.Drawable.inputlayout_togglecollapseicon;
+			global::Syncfusion.ListView.XForms.Android.Resource.Drawable.inputlayout_togglevisibleicon = global::XamarinApp.Droid.Resource.Drawable.inputlayout_togglevisibleicon;
+			global::Syncfusion.ListView.XForms.Android.Resource.String.ApplicationName = global::XamarinApp.Droid.Resource.String.ApplicationName;
+			global::Syncfusion.ListView.XForms.Android.Resource.String.Hello = global::XamarinApp.Droid.Resource.String.Hello;
+			global::Syncfusion.ListView.XForms.Android.Resource.String.Load_More = global::XamarinApp.Droid.Resource.String.Load_More;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::XamarinApp.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -4313,6 +4318,15 @@ namespace XamarinApp.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f090050
+			public const int ApplicationName = 2131296336;
+			
+			// aapt resource value: 0x7f09004f
+			public const int Hello = 2131296335;
+			
+			// aapt resource value: 0x7f090051
+			public const int Load_More = 2131296337;
+			
 			// aapt resource value: 0x7f090026
 			public const int abc_action_bar_home_description = 2131296294;
 			
@@ -4466,8 +4480,8 @@ namespace XamarinApp.Droid
 			// aapt resource value: 0x7f090010
 			public const int common_signin_button_text_long = 2131296272;
 			
-			// aapt resource value: 0x7f09004f
-			public const int library_name = 2131296335;
+			// aapt resource value: 0x7f090052
+			public const int library_name = 2131296338;
 			
 			// aapt resource value: 0x7f090011
 			public const int mr_button_content_description = 2131296273;

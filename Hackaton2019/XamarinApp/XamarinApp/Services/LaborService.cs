@@ -11,12 +11,10 @@ namespace XamarinApp.Services
     public class LaborService : ILaborService
     {
         private RestClient _restClient = null;
-        private GeometryService _geometryService;
 
         public LaborService()
         {
             _restClient = new RestClient(App.ApiUrl);
-            _geometryService = new GeometryService();
         }
 
         public async Task<List<LaborModel>> ObtenerTodos()
