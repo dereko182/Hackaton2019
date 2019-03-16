@@ -1,14 +1,17 @@
 ﻿using GeoAPI.Geometries;
 using NetTopologySuite.Geometries;
 using NetTopologySuite.IO;
+using Newtonsoft.Json;
 using RestSharp;
 using SharedModels;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using XamarinApp.Interfaces;
 
 namespace XamarinApp.Services
 {
-    public class MapaService
+    public class MapaService : IMapaService
     {
         private RestClient _restClient = null;
         private GeometryService _geometryService;
@@ -22,26 +25,24 @@ namespace XamarinApp.Services
 
         public async Task<RanchoModel> ObtenerRancho(int ranchoId)
         {
-            var request = new RestRequest("api/ObtenerRancho/{id}", Method.GET);
+            var request = new RestRequest("api/ranchos/{id}", Method.GET);
             request.AddUrlSegment("id", ranchoId);
             var response = await _restClient.ExecuteTaskAsync<RanchoModel>(request);
 
             if (response.StatusCode != HttpStatusCode.OK)
                 return null;
 
-            //var reader = new WKTReader(new GeometryFactory());
-            //var listaAreas = new List<IPolygon>();
-            //foreach (var wktString in response.Data)
-            //{
-            //    var polygon = _geometryService.FromWktString(wktString);
+            return response.Data ?? JsonConvert.DeserializeObject<RanchoModel>(response.Content);
+        }
 
-            //    if (polygon == null)
-            //    {
-            //        return null;
-            //    }
+        public async Task<List<LaborModel>> ObtenerLabores(int ranchoId)
+        {
+            var request = new RestRequest("api/Labores/{id}", Method.GET);
+            request.AddUrlSegment("id", ranchoId);
+            var response = await _restClient.ExecuteTaskAsync<List<LaborModel>>(request);
 
-            //    listaAreas.Add(polygon);
-            //}
+            if (response.StatusCode != HttpStatusCode.OK)
+                return null;
 
             return response.Data;
         }
