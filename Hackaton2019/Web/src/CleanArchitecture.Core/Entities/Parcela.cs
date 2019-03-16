@@ -15,5 +15,7 @@ namespace CleanArchitecture.Core.Entities
         public string Poligono { get; set; }
 
         public ICollection<PlanSiembraParcela> Planes { get; set; } = new List<PlanSiembraParcela>();
+
+        public string Color { get; set; }
     }
 }
