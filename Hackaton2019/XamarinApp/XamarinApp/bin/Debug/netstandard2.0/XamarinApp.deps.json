@@ -12,6 +12,7 @@
           "NETStandard.Library": "2.0.3",
           "NetTopologySuite": "1.15.2",
           "Refractored.MvvmHelpers": "1.3.0",
+          "SharedModels": "1.0.0",
           "Syncfusion.Xamarin.SfBackdrop": "16.4.0.54",
           "Xamarin.Forms": "3.4.0.1008975",
           "Xamarin.Forms.GoogleMaps": "3.0.4",
@@ -155,6 +156,11 @@
             "fileVersion": "2.2.0.0"
           }
         }
+      },
+      "SharedModels/1.0.0": {
+        "runtime": {
+          "SharedModels.dll": {}
+        }
       }
     }
   },
@@ -261,6 +267,11 @@
       "sha512": "sha512-wGonaamt/7K/RKfPzYl9RN7xNvLoj0axIe2igjNZaKMaAiK0y8JXE9mfgTHJx4Re1qEW8i889LAOIB0eL770tQ==",
       "path": "xamarin.forms.googlemaps.bindings/2.2.0",
       "hashPath": "xamarin.forms.googlemaps.bindings.2.2.0.nupkg.sha512"
+    },
+    "SharedModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

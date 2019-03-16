@@ -166,6 +166,16 @@
         "runtime": {
           "lib/netstandard1.0/Xamarin.Forms.GoogleMaps.Bindings.dll": {}
         }
+      },
+      "SharedModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/SharedModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SharedModels.dll": {}
+        }
       }
     }
   },
@@ -853,6 +863,11 @@
         "xamarin.forms.googlemaps.bindings.2.2.0.nupkg.sha512",
         "xamarin.forms.googlemaps.bindings.nuspec"
       ]
+    },
+    "SharedModels/1.0.0": {
+      "type": "project",
+      "path": "../../SharedModels/SharedModels.csproj",
+      "msbuildProject": "../../SharedModels/SharedModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -860,6 +875,7 @@
       "NETStandard.Library >= 2.0.3",
       "NetTopologySuite >= 1.15.2",
       "Refractored.MvvmHelpers >= 1.3.0",
+      "SharedModels >= 1.0.0",
       "Syncfusion.Xamarin.SfBackdrop >= 16.4.0.54",
       "Xamarin.Forms >= 3.4.0.1008975",
       "Xamarin.Forms.GoogleMaps >= 3.0.4",
@@ -867,23 +883,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Arturo\\.nuget\\packages\\": {},
+    "C:\\Users\\Julio\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj",
+      "projectUniqueName": "D:\\Repos\\HACKATON-2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj",
       "projectName": "XamarinApp",
-      "projectPath": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj",
-      "packagesPath": "C:\\Users\\Arturo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\obj\\",
+      "projectPath": "D:\\Repos\\HACKATON-2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj",
+      "packagesPath": "C:\\Users\\Julio\\.nuget\\packages\\",
+      "outputPath": "D:\\Repos\\HACKATON-2019\\Hackaton2019\\XamarinApp\\XamarinApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Arturo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Julio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -895,7 +911,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Repos\\HACKATON-2019\\Hackaton2019\\SharedModels\\SharedModels.csproj": {
+              "projectPath": "D:\\Repos\\HACKATON-2019\\Hackaton2019\\SharedModels\\SharedModels.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

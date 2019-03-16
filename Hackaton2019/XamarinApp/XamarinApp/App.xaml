@@ -5,6 +5,13 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
+            
+            <Color x:Key="BlackSecondaryText">#8B000000</Color>
+            <Color x:Key="BlackPrimaryText">#DC000000</Color>
+            
+            <x:Double x:Key="TextPrimary">16</x:Double>
+            <x:Double x:Key="TextSecondary">14</x:Double>
+            
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
