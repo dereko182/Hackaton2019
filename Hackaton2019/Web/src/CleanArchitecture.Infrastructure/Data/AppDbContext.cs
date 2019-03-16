@@ -1,8 +1,8 @@
-﻿using CleanArchitecture.Core.Interfaces;
+﻿using CleanArchitecture.Core.Entities;
+using CleanArchitecture.Core.Interfaces;
+using CleanArchitecture.Core.SharedKernel;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using CleanArchitecture.Core.Entities;
-using CleanArchitecture.Core.SharedKernel;
 
 namespace CleanArchitecture.Infrastructure.Data
 {
@@ -16,7 +16,20 @@ namespace CleanArchitecture.Infrastructure.Data
             _dispatcher = dispatcher;
         }
 
-        public DbSet<ToDoItem> ToDoItems { get; set; }
+        public DbSet<PlanSiembra> PlanesSiembra { get; set; }
+        public DbSet<Parcela> Parcelas { get; set; }
+        public DbSet<Cultivo> Cultivos { get; set; }
+        public DbSet<Fase> Fases { get; set; }
+        public DbSet<Labor> Labores { get; set; }
+        public DbSet<LaborParcela> LaboresParcela { get; set; }
+        public DbSet<Plaga> Plagas { get; set; }
+        public DbSet<PlanSiembraParcela> PlanesSiembraParcelas { get; set; }
+        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Productor> Productores { get; set; }
+        public DbSet<ProductoReceta> ProductoRecetas { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
+        public DbSet<Rancho> Ranchos { get; set; }
+        public DbSet<Receta> Recetas { get; set; }
 
         public override int SaveChanges()
         {

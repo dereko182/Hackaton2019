@@ -794,20 +794,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Julio\\.nuget\\packages\\": {}
+    "C:\\Users\\Jesús\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repos\\HACKATON-2019\\Hackaton2019\\XamarinApp\\XamarinApp.Android\\XamarinApp.Android.csproj",
+      "projectUniqueName": "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp.Android\\XamarinApp.Android.csproj",
       "projectName": "XamarinApp.Android",
-      "projectPath": "D:\\Repos\\HACKATON-2019\\Hackaton2019\\XamarinApp\\XamarinApp.Android\\XamarinApp.Android.csproj",
-      "packagesPath": "C:\\Users\\Julio\\.nuget\\packages\\",
-      "outputPath": "D:\\Repos\\HACKATON-2019\\Hackaton2019\\XamarinApp\\XamarinApp.Android\\obj\\",
+      "projectPath": "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp.Android\\XamarinApp.Android.csproj",
+      "packagesPath": "C:\\Users\\Jesús\\.nuget\\packages\\",
+      "outputPath": "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Julio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jesús\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -815,13 +815,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://ci.appveyor.com/nuget/iconize": {}
       },
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "D:\\Repos\\HACKATON-2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj": {
-              "projectPath": "D:\\Repos\\HACKATON-2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj"
+            "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj": {
+              "projectPath": "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj"
             }
           }
         }
