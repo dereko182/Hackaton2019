@@ -19,6 +19,11 @@ namespace CleanArchitecture.Web.Controllers
             return View();
         }
 
+        public IActionResult CapturarCostos()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();

@@ -1,0 +1,45 @@
+﻿@using CleanArchitecture.Core.Entities
+@using CleanArchitecture.Core.Interfaces
+@using CleanArchitecture.Core.Specs
+@inject IRepository Repository
+<div class="container-fluid">
+    <h4 class="mt-3">Capturar costos</h4>
+    <section class="mt-3">
+        <ul class="list-inline">
+            <li>
+                <a href="#" class="btn btn-primary btn-modal-action">
+                    <i class="fa fa-save"></i> Guardar cambios
+                </a>
+            </li>
+        </ul>
+    </section>
+    <div class="animated fadeIn">
+        <div class="row">
+            @{
+                Random rnd = new Random();
+            }
+            @foreach (var x in Repository.List<Labor>(new LaborSpec()).GroupBy(x => x.Fase).OrderBy(x => x.Key.Nombre))
+            {
+
+
+
+                <div class="col-md-6">
+                    <h4 class="mt-3">@x.Key.Nombre</h4>
+                    @foreach (var m in x)
+                    {
+                        var y = rnd.NextDouble() * 1000;
+                        <div class="form-group">
+                            <label>@m.Nombre</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input class="form-control" type="number" value="@y.ToString("N2")" />
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
