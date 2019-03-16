@@ -10,5 +10,6 @@ namespace CleanArchitecture.Core.Interfaces
         T Add<T>(T entity) where T : BaseEntity;
         void Update<T>(T entity) where T : BaseEntity;
         void Delete<T>(T entity) where T : BaseEntity;
+        IReadOnlyList<T> List<T>(ISpecification<T> spec) where T : BaseEntity;
     }
 }

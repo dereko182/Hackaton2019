@@ -11,6 +11,8 @@ namespace CleanArchitecture.Core.Entities
 
         public double Precio { get; set; }
 
+        public string Categoria { get; set; }
+
         public UnidadMedida UnidadMedida { get; set; }
     }
 }

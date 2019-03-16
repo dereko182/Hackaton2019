@@ -1,13 +1,38 @@
-﻿@{
-    ViewData["Title"] = "Clean DDD Architecture Sample";
+﻿@using CleanArchitecture.Core.Entities
+@using CleanArchitecture.Core.Interfaces
+@using CleanArchitecture.Core.Specs
+@inject IRepository Repository
+@{
+    ViewData["Title"] = "Hackaton 2019";
 }
-
-<div class="row">
-
-    
-    <div class="center-block" style="padding-top:10%">
-        <h2>TEAM MONOBITS</h2>
-        <h1>HACKATON 2019</h1>
-    </div>
-
-</div>
+<h1>Esquema</h1>
+<ul>
+    @foreach (var p in Repository.List<Productor>(new ProductorSpec(x => true)))
+    {
+        <li>
+            @p.Nombre
+            <ul>
+                Ranchos
+                @foreach (var r in p.Ranchos)
+                {
+                    <li>
+                        @r.Nombre
+                        Lotes
+                        @foreach (var l in r.Lotes)
+                        {
+                        <li>
+                            @l.Catastro
+                        </li>
+                    }
+                </li>
+            }
+            </ul>
+            </li>
+        }
+    Productos
+    <ul>
+        @foreach (var p in Repository.List<Producto>(new ProductosSpec()))
+        {
+            <li>@p.Nombre @p.Categoria @p.UnidadMedida</li>
+        }
+    </ul>

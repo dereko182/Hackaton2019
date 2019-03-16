@@ -7,10 +7,14 @@ namespace CleanArchitecture.Web.Controllers
     {
         public HomeController(AppDbContext db)
         {
-            db.PopulateTestData();
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Test()
         {
             return View();
         }

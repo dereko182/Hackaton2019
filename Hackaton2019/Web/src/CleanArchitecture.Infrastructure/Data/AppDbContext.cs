@@ -16,19 +16,40 @@ namespace CleanArchitecture.Infrastructure.Data
             _dispatcher = dispatcher;
         }
 
-        public DbSet<PlanSiembra> PlanesSiembra { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<PlanSiembraParcela>()
+                .HasKey(etm => new { etm.ParcelaId, etm.PlanSiembraId });
+
+            builder.Entity<PlanSiembraParcela>()
+                .HasOne(etm => etm.PlanSiembra)
+                .WithMany(etm => etm.Parcelas)
+                .HasForeignKey(etm => etm.PlanSiembraId);
+
+            builder.Entity<PlanSiembraParcela>()
+                .HasOne(etm => etm.Parcela)
+                .WithMany(etm => etm.Planes)
+                .HasForeignKey(etm => etm.ParcelaId);
+        }
+
+        public DbSet<Productor> Productores { get; set; }
+        public DbSet<Rancho> Ranchos { get; set; }
+        public DbSet<Lote> Lotes { get; set; }
         public DbSet<Parcela> Parcelas { get; set; }
+        public DbSet<PlanSiembra> PlanesSiembra { get; set; }
+
         public DbSet<Cultivo> Cultivos { get; set; }
+        public DbSet<Plaga> Plagas { get; set; }
+        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
+
         public DbSet<Fase> Fases { get; set; }
         public DbSet<Labor> Labores { get; set; }
+
         public DbSet<LaborParcela> LaboresParcela { get; set; }
-        public DbSet<Plaga> Plagas { get; set; }
         public DbSet<PlanSiembraParcela> PlanesSiembraParcelas { get; set; }
-        public DbSet<Producto> Productos { get; set; }
-        public DbSet<Productor> Productores { get; set; }
+
         public DbSet<ProductoReceta> ProductoRecetas { get; set; }
-        public DbSet<Proveedor> Proveedores { get; set; }
-        public DbSet<Rancho> Ranchos { get; set; }
         public DbSet<Receta> Recetas { get; set; }
 
         public override int SaveChanges()
