@@ -20,7 +20,11 @@
         <category android:name="mono.android.intent.category.SEPPUKU.com.companyname.XamarinApp" />
       </intent-filter>
     </receiver>
-    <meta-data android:name="android.support.VERSION" android:value="26.1.0" />
     <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT" />
+    <meta-data android:name="android.support.VERSION" android:value="26.1.0" />
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
   </application>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-feature android:glEsVersion="0x00020000" android:required="true" />
 </manifest>

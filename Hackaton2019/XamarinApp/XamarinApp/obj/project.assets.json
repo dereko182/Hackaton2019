@@ -2,6 +2,27 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "GeoAPI.CoordinateSystems/1.7.5": {
+        "type": "package",
+        "dependencies": {
+          "GeoAPI.Core": "1.7.5"
+        },
+        "compile": {
+          "lib/netstandard2.0/GeoAPI.CoordinateSystems.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/GeoAPI.CoordinateSystems.dll": {}
+        }
+      },
+      "GeoAPI.Core/1.7.5": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/GeoAPI.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/GeoAPI.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -26,6 +47,83 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "NetTopologySuite/1.15.2": {
+        "type": "package",
+        "dependencies": {
+          "NetTopologySuite.CoordinateSystems": "1.15.2",
+          "NetTopologySuite.Core": "1.15.2"
+        }
+      },
+      "NetTopologySuite.CoordinateSystems/1.15.2": {
+        "type": "package",
+        "dependencies": {
+          "GeoAPI.CoordinateSystems": "[1.7.5, 2.0.0-A)"
+        },
+        "compile": {
+          "lib/netstandard2.0/NetTopologySuite.CoordinateSystems.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.CoordinateSystems.dll": {}
+        }
+      },
+      "NetTopologySuite.Core/1.15.2": {
+        "type": "package",
+        "dependencies": {
+          "GeoAPI.Core": "[1.7.5, 2.0.0-A)"
+        },
+        "compile": {
+          "lib/netstandard2.0/NetTopologySuite.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.dll": {}
+        }
+      },
+      "Refractored.MvvmHelpers/1.3.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/MvvmHelpers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/MvvmHelpers.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/16.4.0.54": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
+        }
+      },
+      "Syncfusion.Xamarin.Core/16.4.0.54": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Licensing": "16.4.0.54"
+        },
+        "compile": {
+          "lib/netstandard1.0/Syncfusion.Core.XForms.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Syncfusion.Core.XForms.dll": {}
+        }
+      },
+      "Syncfusion.Xamarin.SfBackdrop/16.4.0.54": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "16.4.0.54",
+          "Xamarin.Forms": "2.5.1.527436"
+        },
+        "compile": {
+          "lib/netstandard1.0/Syncfusion.SfBackdrop.XForms.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Syncfusion.SfBackdrop.XForms.dll": {}
+        }
+      },
       "Xamarin.Forms/3.4.0.1008975": {
         "type": "package",
         "compile": {
@@ -42,10 +140,216 @@
           "build/Xamarin.Forms.props": {},
           "build/Xamarin.Forms.targets": {}
         }
+      },
+      "Xamarin.Forms.GoogleMaps/3.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "3.0.0.482510"
+        },
+        "compile": {
+          "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll": {}
+        }
+      },
+      "Xamarin.Forms.GoogleMaps.Bindings/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Xamarin.Forms": "2.3.4.247",
+          "Xamarin.Forms.GoogleMaps": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/Xamarin.Forms.GoogleMaps.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Xamarin.Forms.GoogleMaps.Bindings.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "GeoAPI.CoordinateSystems/1.7.5": {
+      "sha512": "JBcvkeQFjCW9NTfkII5WiJNmnv0ZtYA/VTVljbIqDFWBJ8kHwu2UHd2MVStD/VVHVnLoyNcDIapsuTENdlyF3g==",
+      "type": "package",
+      "path": "geoapi.coordinatesystems/1.7.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "geoapi.coordinatesystems.1.7.5.nupkg.sha512",
+        "geoapi.coordinatesystems.nuspec",
+        "lib/net20/GeoAPI.CoordinateSystems.dll",
+        "lib/net20/GeoAPI.CoordinateSystems.pdb",
+        "lib/net20/GeoAPI.CoordinateSystems.xml",
+        "lib/net35-cf/GeoAPI.CoordinateSystems.dll",
+        "lib/net35-cf/GeoAPI.CoordinateSystems.pdb",
+        "lib/net35-cf/GeoAPI.CoordinateSystems.xml",
+        "lib/net35-client/GeoAPI.CoordinateSystems.dll",
+        "lib/net35-client/GeoAPI.CoordinateSystems.pdb",
+        "lib/net35-client/GeoAPI.CoordinateSystems.xml",
+        "lib/net40-client/GeoAPI.CoordinateSystems.dll",
+        "lib/net40-client/GeoAPI.CoordinateSystems.pdb",
+        "lib/net40-client/GeoAPI.CoordinateSystems.xml",
+        "lib/net403-client/GeoAPI.CoordinateSystems.dll",
+        "lib/net403-client/GeoAPI.CoordinateSystems.pdb",
+        "lib/net403-client/GeoAPI.CoordinateSystems.xml",
+        "lib/net45/GeoAPI.CoordinateSystems.dll",
+        "lib/net45/GeoAPI.CoordinateSystems.pdb",
+        "lib/net45/GeoAPI.CoordinateSystems.xml",
+        "lib/netstandard1.0/GeoAPI.CoordinateSystems.deps.json",
+        "lib/netstandard1.0/GeoAPI.CoordinateSystems.dll",
+        "lib/netstandard1.0/GeoAPI.CoordinateSystems.pdb",
+        "lib/netstandard1.0/GeoAPI.CoordinateSystems.xml",
+        "lib/netstandard2.0/GeoAPI.CoordinateSystems.deps.json",
+        "lib/netstandard2.0/GeoAPI.CoordinateSystems.dll",
+        "lib/netstandard2.0/GeoAPI.CoordinateSystems.pdb",
+        "lib/netstandard2.0/GeoAPI.CoordinateSystems.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/GeoAPI.CoordinateSystems.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/GeoAPI.CoordinateSystems.pdb",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/GeoAPI.CoordinateSystems.xml",
+        "lib/portable40-net403+sl5+win8+wp8+wpa81/GeoAPI.CoordinateSystems.dll",
+        "lib/portable40-net403+sl5+win8+wp8+wpa81/GeoAPI.CoordinateSystems.pdb",
+        "lib/portable40-net403+sl5+win8+wp8+wpa81/GeoAPI.CoordinateSystems.xml",
+        "src/CoordinateSystems/AxisInfo.cs",
+        "src/CoordinateSystems/AxisOrientationEnum.cs",
+        "src/CoordinateSystems/DatumType.cs",
+        "src/CoordinateSystems/IAngularUnit.cs",
+        "src/CoordinateSystems/ICompoundCoordinateSystem.cs",
+        "src/CoordinateSystems/ICoordinateSystem.cs",
+        "src/CoordinateSystems/ICoordinateSystemAuthorityFactory.cs",
+        "src/CoordinateSystems/ICoordinateSystemFactory.cs",
+        "src/CoordinateSystems/IDatum.cs",
+        "src/CoordinateSystems/IEllipsoid.cs",
+        "src/CoordinateSystems/IFittedCoordinateSystem.cs",
+        "src/CoordinateSystems/IGeocentricCoordinateSystem.cs",
+        "src/CoordinateSystems/IGeodeticSpatialReference.cs",
+        "src/CoordinateSystems/IGeographicCoordinateSystem.cs",
+        "src/CoordinateSystems/IGeographicTransform.cs",
+        "src/CoordinateSystems/IHorizontalCoordinateSystem.cs",
+        "src/CoordinateSystems/IHorizontalDatum.cs",
+        "src/CoordinateSystems/IInfo.cs",
+        "src/CoordinateSystems/ILinearUnit.cs",
+        "src/CoordinateSystems/ILocalCoordinateSystem.cs",
+        "src/CoordinateSystems/ILocalDatum.cs",
+        "src/CoordinateSystems/IParameterInfo.cs",
+        "src/CoordinateSystems/IPrimeMeridian.cs",
+        "src/CoordinateSystems/IProjectedCoordinateSystem.cs",
+        "src/CoordinateSystems/IProjection.cs",
+        "src/CoordinateSystems/IUnit.cs",
+        "src/CoordinateSystems/IVerticalCoordinateSystem.cs",
+        "src/CoordinateSystems/IVerticalDatum.cs",
+        "src/CoordinateSystems/Parameter.cs",
+        "src/CoordinateSystems/ProjectionParameter.cs",
+        "src/CoordinateSystems/Transformations/DomainFlags.cs",
+        "src/CoordinateSystems/Transformations/ICoordinateTransformation.cs",
+        "src/CoordinateSystems/Transformations/ICoordinateTransformationFactory.cs",
+        "src/CoordinateSystems/Transformations/IMathTransform.cs",
+        "src/CoordinateSystems/Transformations/IMathTransformFactory.cs",
+        "src/CoordinateSystems/Transformations/TransformType.cs",
+        "src/CoordinateSystems/WGS84ConversionInfo.cs",
+        "src/ICoordinateSystemServices.cs"
+      ]
+    },
+    "GeoAPI.Core/1.7.5": {
+      "sha512": "Dy/YkgZ1szgx+xbVWqMi+4++Fm6v3szbVdei1LKPRZ3meSvgNSMZxqhar5IAeaTj5LcUHLtLGdfyUtkjnYbg3A==",
+      "type": "package",
+      "path": "geoapi.core/1.7.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "geoapi.core.1.7.5.nupkg.sha512",
+        "geoapi.core.nuspec",
+        "lib/net20/GeoAPI.dll",
+        "lib/net20/GeoAPI.pdb",
+        "lib/net20/GeoAPI.xml",
+        "lib/net35-cf/GeoAPI.dll",
+        "lib/net35-cf/GeoAPI.pdb",
+        "lib/net35-cf/GeoAPI.xml",
+        "lib/net35-client/GeoAPI.dll",
+        "lib/net35-client/GeoAPI.pdb",
+        "lib/net35-client/GeoAPI.xml",
+        "lib/net40-client/GeoAPI.dll",
+        "lib/net40-client/GeoAPI.pdb",
+        "lib/net40-client/GeoAPI.xml",
+        "lib/net403-client/GeoAPI.dll",
+        "lib/net403-client/GeoAPI.pdb",
+        "lib/net403-client/GeoAPI.xml",
+        "lib/net45/GeoAPI.dll",
+        "lib/net45/GeoAPI.pdb",
+        "lib/net45/GeoAPI.xml",
+        "lib/netstandard1.0/GeoAPI.deps.json",
+        "lib/netstandard1.0/GeoAPI.dll",
+        "lib/netstandard1.0/GeoAPI.pdb",
+        "lib/netstandard1.0/GeoAPI.xml",
+        "lib/netstandard2.0/GeoAPI.deps.json",
+        "lib/netstandard2.0/GeoAPI.dll",
+        "lib/netstandard2.0/GeoAPI.pdb",
+        "lib/netstandard2.0/GeoAPI.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/GeoAPI.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/GeoAPI.pdb",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/GeoAPI.xml",
+        "lib/portable40-net403+sl5+win8+wp8+wpa81/GeoAPI.dll",
+        "lib/portable40-net403+sl5+win8+wp8+wpa81/GeoAPI.pdb",
+        "lib/portable40-net403+sl5+win8+wp8+wpa81/GeoAPI.xml",
+        "src/Consts.cs",
+        "src/DataStructures/Interval.cs",
+        "src/Geometries/Coordinate.cs",
+        "src/Geometries/Dimension.cs",
+        "src/Geometries/Envelope.cs",
+        "src/Geometries/IBoundable.cs",
+        "src/Geometries/ICoordinate.cs",
+        "src/Geometries/ICoordinateBuffer.cs",
+        "src/Geometries/ICoordinateFilter.cs",
+        "src/Geometries/ICoordinateSequence.cs",
+        "src/Geometries/ICoordinateSequenceFactory.cs",
+        "src/Geometries/ICoordinateSequenceFilter.cs",
+        "src/Geometries/ICurve.cs",
+        "src/Geometries/IEnvelope.cs",
+        "src/Geometries/IExpandable.cs",
+        "src/Geometries/IGeometry.cs",
+        "src/Geometries/IGeometryCollection.cs",
+        "src/Geometries/IGeometryComponentFilter.cs",
+        "src/Geometries/IGeometryFactory.cs",
+        "src/Geometries/IGeometryFilter.cs",
+        "src/Geometries/IIntersectable.cs",
+        "src/Geometries/ILineString.cs",
+        "src/Geometries/ILineal.cs",
+        "src/Geometries/ILinearRing.cs",
+        "src/Geometries/IMultiCurve.cs",
+        "src/Geometries/IMultiLineString.cs",
+        "src/Geometries/IMultiPoint.cs",
+        "src/Geometries/IMultiPolygon.cs",
+        "src/Geometries/IMultiSurface.cs",
+        "src/Geometries/IPoint.cs",
+        "src/Geometries/IPolygon.cs",
+        "src/Geometries/IPolygonal.cs",
+        "src/Geometries/IPrecisionModel.cs",
+        "src/Geometries/IPuntal.cs",
+        "src/Geometries/ISurface.cs",
+        "src/Geometries/IntersectionMatrix.cs",
+        "src/Geometries/Location.cs",
+        "src/Geometries/OgcGeometryType.cs",
+        "src/Geometries/Ordinate.cs",
+        "src/Geometries/Ordinates.cs",
+        "src/Geometries/OridinatesUtility.cs",
+        "src/Geometries/Prepared/IPreparedGeometry.cs",
+        "src/GeometryServiceProvider.cs",
+        "src/ICloneable.cs",
+        "src/IGeometryServices.cs",
+        "src/IO/ByteOrder.cs",
+        "src/IO/GeometryType.cs",
+        "src/IO/IGeometryReader.cs",
+        "src/IO/IGeometryWriter.cs",
+        "src/IO/ParseException.cs",
+        "src/Operation/Buffer/BufferStyle.cs",
+        "src/Operation/Buffer/EndCapStyle.cs",
+        "src/Operation/Buffer/IBufferParameters.cs",
+        "src/Operation/Buffer/JoinStyle.cs",
+        "src/Properties/AssemblyInfo.cs",
+        "src/ValueParser.cs"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -187,6 +491,190 @@
         "lib/netstandard1.0/_._",
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "NetTopologySuite/1.15.2": {
+      "sha512": "5EHs5un9s4sTItAzEC66ri1EXjZsTs0g0QO9hbRXJq7+59cLMziO20rxo3nMJ+RPKG9PEZEpcBRLMig6H5Dj8A==",
+      "type": "package",
+      "path": "nettopologysuite/1.15.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "nettopologysuite.1.15.2.nupkg.sha512",
+        "nettopologysuite.nuspec"
+      ]
+    },
+    "NetTopologySuite.CoordinateSystems/1.15.2": {
+      "sha512": "rfje4KrPKpLWj3+DoM5Ouv4lLHtOxjGBa3gLP/tCPBwRY9mvwDG79kYnsbEKm9tg1IWmJfakljNen9RJLycUGA==",
+      "type": "package",
+      "path": "nettopologysuite.coordinatesystems/1.15.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35-client/NetTopologySuite.CoordinateSystems.dll",
+        "lib/net35-client/NetTopologySuite.CoordinateSystems.xml",
+        "lib/net40-client/NetTopologySuite.CoordinateSystems.dll",
+        "lib/net40-client/NetTopologySuite.CoordinateSystems.xml",
+        "lib/net403-client/NetTopologySuite.CoordinateSystems.dll",
+        "lib/net403-client/NetTopologySuite.CoordinateSystems.xml",
+        "lib/net45/NetTopologySuite.CoordinateSystems.dll",
+        "lib/net45/NetTopologySuite.CoordinateSystems.xml",
+        "lib/netcoreapp2.0/NetTopologySuite.CoordinateSystems.dll",
+        "lib/netcoreapp2.0/NetTopologySuite.CoordinateSystems.xml",
+        "lib/netstandard1.0/NetTopologySuite.CoordinateSystems.deps.json",
+        "lib/netstandard1.0/NetTopologySuite.CoordinateSystems.dll",
+        "lib/netstandard1.0/NetTopologySuite.CoordinateSystems.xml",
+        "lib/netstandard1.3/NetTopologySuite.CoordinateSystems.deps.json",
+        "lib/netstandard1.3/NetTopologySuite.CoordinateSystems.dll",
+        "lib/netstandard1.3/NetTopologySuite.CoordinateSystems.xml",
+        "lib/netstandard2.0/NetTopologySuite.CoordinateSystems.deps.json",
+        "lib/netstandard2.0/NetTopologySuite.CoordinateSystems.dll",
+        "lib/netstandard2.0/NetTopologySuite.CoordinateSystems.xml",
+        "nettopologysuite.coordinatesystems.1.15.2.nupkg.sha512",
+        "nettopologysuite.coordinatesystems.nuspec"
+      ]
+    },
+    "NetTopologySuite.Core/1.15.2": {
+      "sha512": "1vHTxx/bS/KUvLq+B56zBilcGyz6/V0vciA6z0rkGnSyHeob+uP2Q95w6cpCr22DU8mWcx1OvoAGeXX5gaZ2tw==",
+      "type": "package",
+      "path": "nettopologysuite.core/1.15.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35-client/NetTopologySuite.dll",
+        "lib/net35-client/NetTopologySuite.xml",
+        "lib/net40-client/NetTopologySuite.dll",
+        "lib/net40-client/NetTopologySuite.xml",
+        "lib/net403-client/NetTopologySuite.dll",
+        "lib/net403-client/NetTopologySuite.xml",
+        "lib/net45/NetTopologySuite.dll",
+        "lib/net45/NetTopologySuite.xml",
+        "lib/netcoreapp2.0/NetTopologySuite.dll",
+        "lib/netcoreapp2.0/NetTopologySuite.xml",
+        "lib/netstandard1.0/NetTopologySuite.deps.json",
+        "lib/netstandard1.0/NetTopologySuite.dll",
+        "lib/netstandard1.0/NetTopologySuite.xml",
+        "lib/netstandard1.3/NetTopologySuite.deps.json",
+        "lib/netstandard1.3/NetTopologySuite.dll",
+        "lib/netstandard1.3/NetTopologySuite.xml",
+        "lib/netstandard2.0/NetTopologySuite.deps.json",
+        "lib/netstandard2.0/NetTopologySuite.dll",
+        "lib/netstandard2.0/NetTopologySuite.xml",
+        "nettopologysuite.core.1.15.2.nupkg.sha512",
+        "nettopologysuite.core.nuspec"
+      ]
+    },
+    "Refractored.MvvmHelpers/1.3.0": {
+      "sha512": "IBBHbITCvULc5f5/QH4qB7WBgiGg7BdeKtA5nsBeAXDlhOBWwNt50TBjQOK/s5cm3O+0puDB8n68Yyd9m3JHWQ==",
+      "type": "package",
+      "path": "refractored.mvvmhelpers/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.0/MvvmHelpers.deps.json",
+        "lib/netstandard1.0/MvvmHelpers.dll",
+        "lib/netstandard1.0/MvvmHelpers.pdb",
+        "lib/netstandard1.0/MvvmHelpers.xml",
+        "refractored.mvvmhelpers.1.3.0.nupkg.sha512",
+        "refractored.mvvmhelpers.nuspec"
+      ]
+    },
+    "Syncfusion.Licensing/16.4.0.54": {
+      "sha512": "KpdQjjikdxf34gK4Q6edN31ZvUwTUh8Fgbbv0+/PVRG7U/PH0aQrmTCUXur53MzgFaxg0HeJxrS+hqqBTJ6z/A==",
+      "type": "package",
+      "path": "syncfusion.licensing/16.4.0.54",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.Licensing.dll",
+        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
+        "lib/net20/Syncfusion.Licensing.dll",
+        "lib/net35/Syncfusion.Licensing.dll",
+        "lib/net40/Syncfusion.Licensing.dll",
+        "lib/net45/Syncfusion.Licensing.dll",
+        "lib/net451/Syncfusion.Licensing.dll",
+        "lib/net46/Syncfusion.Licensing.dll",
+        "lib/netstandard1.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.2/Syncfusion.Licensing.dll",
+        "lib/netstandard1.4/Syncfusion.Licensing.dll",
+        "lib/netstandard2.0/Syncfusion.Licensing.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
+        "lib/uap10.0/Syncfusion.Licensing.dll",
+        "syncfusion.licensing.16.4.0.54.nupkg.sha512",
+        "syncfusion.licensing.nuspec"
+      ]
+    },
+    "Syncfusion.Xamarin.Core/16.4.0.54": {
+      "sha512": "DWPiekLe0THLAuJymeGmEFry0GPa+Q6Tqega7HZMVyp81dv9NFxVhBw0Ef9AksrJEHGywLgqqS/kGugAPUFYvg==",
+      "type": "package",
+      "path": "syncfusion.xamarin.core/16.4.0.54",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.Core.XForms.Android.dll",
+        "lib/MonoAndroid10/Syncfusion.Core.XForms.dll",
+        "lib/MonoAndroid10/Syncfusion.Core.XForms.xml",
+        "lib/Xamarin.Mac/Syncfusion.Core.XForms.dll",
+        "lib/Xamarin.Mac/Syncfusion.Core.XForms.macOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Core.XForms.xml",
+        "lib/netstandard1.0/Syncfusion.Core.XForms.dll",
+        "lib/netstandard1.0/Syncfusion.Core.XForms.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Core.XForms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Core.XForms.xml",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP.pri",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP/Syncfusion.Core.XForms.UWP.xr.xml",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP/ToggleIcons/ToggleCollapsedIcon.xaml",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP/ToggleIcons/ToggleCollapsedIcon.xbf",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP/ToggleIcons/ToggleVisibleIcon.xaml",
+        "lib/uap10.0/Syncfusion.Core.XForms.UWP/ToggleIcons/ToggleVisibleIcon.xbf",
+        "lib/uap10.0/Syncfusion.Core.XForms.dll",
+        "lib/uap10.0/Syncfusion.Core.XForms.xml",
+        "syncfusion.xamarin.core.16.4.0.54.nupkg.sha512",
+        "syncfusion.xamarin.core.nuspec"
+      ]
+    },
+    "Syncfusion.Xamarin.SfBackdrop/16.4.0.54": {
+      "sha512": "Z5zW3VTPx7yMJEfsPFLt/QmVf3mn97TBJLuAi04fjC2wDi8qxjZHEAS8/vxACxAaPK0aJ+OTgz8ER9k8rNxpsQ==",
+      "type": "package",
+      "path": "syncfusion.xamarin.sfbackdrop/16.4.0.54",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.SfBackdrop.XForms.Android.dll",
+        "lib/MonoAndroid10/Syncfusion.SfBackdrop.XForms.dll",
+        "lib/MonoAndroid10/Syncfusion.SfBackdrop.XForms.xml",
+        "lib/Xamarin.iOS10/Syncfusion.SfBackdrop.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfBackdrop.XForms.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfBackdrop.XForms.xml",
+        "lib/netstandard1.0/Syncfusion.SfBackdrop.XForms.dll",
+        "lib/netstandard1.0/Syncfusion.SfBackdrop.XForms.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfBackdrop.XForms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfBackdrop.XForms.xml",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP.pri",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Properties/Syncfusion.SfBackdrop.XForms.UWP.rd.xml",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.UWP.pri",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.UWP.xml",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.UWP/Properties/Syncfusion.SfBackdrop.XForms.UWP.rd.xml",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.UWP/backdropCloseIcon.png",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.UWP/backdropDown.png",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.UWP/backdropHamburgerIcon.png",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.UWP/backdropUp.png",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.dll",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/Syncfusion.SfBackdrop.XForms.xml",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/backdropCloseIcon.png",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/backdropDown.png",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/backdropHamburgerIcon.png",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.UWP/backdropUp.png",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.dll",
+        "lib/uap10.0/Syncfusion.SfBackdrop.XForms.xml",
+        "syncfusion.xamarin.sfbackdrop.16.4.0.54.nupkg.sha512",
+        "syncfusion.xamarin.sfbackdrop.nuspec"
       ]
     },
     "Xamarin.Forms/3.4.0.1008975": {
@@ -334,12 +822,48 @@
         "xamarin.forms.3.4.0.1008975.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
+    },
+    "Xamarin.Forms.GoogleMaps/3.0.4": {
+      "sha512": "Ej7XSn6v+NtN/Nt0UXTAYhLKcEIgW6DtiV7nL3zMBAAxH9E8oAnOpMUqGJ9Kz7AieHps4j3FafbbQy7f8hd2Hw==",
+      "type": "package",
+      "path": "xamarin.forms.googlemaps/3.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid70/Xamarin.Forms.GoogleMaps.Android.dll",
+        "lib/MonoAndroid70/Xamarin.Forms.GoogleMaps.dll",
+        "lib/UAP10/Xamarin.Forms.GoogleMaps.UWP.dll",
+        "lib/UAP10/Xamarin.Forms.GoogleMaps.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.GoogleMaps.iOS.dll",
+        "lib/netstandard1.0/Xamarin.Forms.GoogleMaps.dll",
+        "lib/netstandard2.0/Xamarin.Forms.GoogleMaps.dll",
+        "xamarin.forms.googlemaps.3.0.4.nupkg.sha512",
+        "xamarin.forms.googlemaps.nuspec"
+      ]
+    },
+    "Xamarin.Forms.GoogleMaps.Bindings/2.2.0": {
+      "sha512": "wGonaamt/7K/RKfPzYl9RN7xNvLoj0axIe2igjNZaKMaAiK0y8JXE9mfgTHJx4Re1qEW8i889LAOIB0eL770tQ==",
+      "type": "package",
+      "path": "xamarin.forms.googlemaps.bindings/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.0/Xamarin.Forms.GoogleMaps.Bindings.dll",
+        "xamarin.forms.googlemaps.bindings.2.2.0.nupkg.sha512",
+        "xamarin.forms.googlemaps.bindings.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.3",
-      "Xamarin.Forms >= 3.4.0.1008975"
+      "NetTopologySuite >= 1.15.2",
+      "Refractored.MvvmHelpers >= 1.3.0",
+      "Syncfusion.Xamarin.SfBackdrop >= 16.4.0.54",
+      "Xamarin.Forms >= 3.4.0.1008975",
+      "Xamarin.Forms.GoogleMaps >= 3.0.4",
+      "Xamarin.Forms.GoogleMaps.Bindings >= 2.2.0"
     ]
   },
   "packageFolders": {
@@ -349,11 +873,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Arturo\\Source\\Repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj",
+      "projectUniqueName": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj",
       "projectName": "XamarinApp",
-      "projectPath": "C:\\Users\\Arturo\\Source\\Repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj",
+      "projectPath": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj",
       "packagesPath": "C:\\Users\\Arturo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Arturo\\Source\\Repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\obj\\",
+      "outputPath": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -389,9 +913,29 @@
             "version": "[2.0.3, )",
             "autoReferenced": true
           },
+          "NetTopologySuite": {
+            "target": "Package",
+            "version": "[1.15.2, )"
+          },
+          "Refractored.MvvmHelpers": {
+            "target": "Package",
+            "version": "[1.3.0, )"
+          },
+          "Syncfusion.Xamarin.SfBackdrop": {
+            "target": "Package",
+            "version": "[16.4.0.54, )"
+          },
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[3.4.0.1008975, )"
+          },
+          "Xamarin.Forms.GoogleMaps": {
+            "target": "Package",
+            "version": "[3.0.4, )"
+          },
+          "Xamarin.Forms.GoogleMaps.Bindings": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           }
         },
         "imports": [

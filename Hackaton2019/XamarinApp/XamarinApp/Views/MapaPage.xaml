@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<backdrop:SfBackdropPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:backdrop="clr-namespace:Syncfusion.XForms.Backdrop;assembly=Syncfusion.SfBackdrop.XForms"
+    xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+    xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
+    xmlns:vm="clr-namespace:XamarinApp.ViewModels"
+    x:Class="XamarinApp.Views.MapaPage"
+    Title="Mapa"
+    IsBackLayerRevealed="False" 
+    BackLayerRevealOption="Auto" x:Name="backdropPage">
+    <ContentPage.BindingContext>
+        <vm:MapaViewModel/>
+    </ContentPage.BindingContext>
+    <backdrop:SfBackdropPage.BackLayer>
+        <backdrop:BackdropBackLayer Margin="0,0,0,-56">
+            <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="White" x:Name="slBackLayer">
+            </StackLayout>
+        </backdrop:BackdropBackLayer>
+    </backdrop:SfBackdropPage.BackLayer>
+    <backdrop:SfBackdropPage.FrontLayer>
+        <backdrop:BackdropFrontLayer>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <maps:Map x:Name="map"
+                      InitialCameraUpdate="32.5394109, -115.0873447, 15, 0, 0" MapType="Satellite" HasRotationEnabled="False"
+                      VerticalOptions="FillAndExpand">
+                    <maps:Map.Behaviors>
+                        <bindings:MapClickedToCommandBehavior Command="{Binding MapClickedCommand}"/>
+                        <bindings:InfoWindowClickedToCommandBehavior Command="{Binding InfoClickedCommand}"/>
+                        <bindings:BindingPolygonsBehavior Value="{Binding Polygons}"/>
+                        <bindings:BindingPinsBehavior Value="{Binding Pins}"/>
+                    </maps:Map.Behaviors>
+                </maps:Map>
+            </StackLayout>
+        </backdrop:BackdropFrontLayer>
+    </backdrop:SfBackdropPage.FrontLayer>
+</backdrop:SfBackdropPage>
