@@ -19,6 +19,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfBackdrop" Version="16.4.0.54" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="16.4.0.54" />
     <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="16.4.0.54" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="16.4.0.54" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="16.4.0.54" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.4.859" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
@@ -34,6 +35,9 @@
   <ItemGroup>
     <Compile Update="Views\LaboresPage.xaml.cs">
       <DependentUpon>LaboresPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ChartPage.xaml.cs">
+      <DependentUpon>ChartPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

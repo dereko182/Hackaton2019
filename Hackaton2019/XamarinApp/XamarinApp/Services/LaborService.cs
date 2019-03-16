@@ -45,12 +45,12 @@ namespace XamarinApp.Services
             var request = new RestRequest("api/Labores/CambiarEstado", Method.POST);
             request.AddJsonBody(labor);
 
-            var response = await _restClient.ExecuteTaskAsync<bool>(request);
+            var response = await _restClient.ExecuteTaskAsync(request);
 
             if (response.StatusCode != HttpStatusCode.OK)
                 return false;
 
-            return response.Data == null ? JsonConvert.DeserializeObject<bool>(response.Content) : false;
+            return true;
         }
     }
 }

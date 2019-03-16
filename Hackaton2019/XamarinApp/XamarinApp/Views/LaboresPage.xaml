@@ -14,9 +14,9 @@
     </behaviors:Interaction.Behaviors>
     <ContentPage.Content>
         <listView:SfListView x:Name="listView" ItemSize="70" GroupHeaderSize="60" SelectionGesture="Tap"
-                           ItemsSource="{Binding Labores}" ItemSpacing="0,0,5,0" SelectionMode="SingleDeselect" AllowGroupExpandCollapse="True" IsStickyGroupHeader="True" SelectionBackgroundColor="{StaticResource SecondaryLight}">
+                           ItemsSource="{Binding Labores}" ItemSpacing="0,0,5,0" SelectionMode="Multiple" AllowGroupExpandCollapse="True" IsStickyGroupHeader="True" SelectionBackgroundColor="Transparent">
             <listView:SfListView.Behaviors>
-                <behaviors1:EventToCommandBehavior EventName="SelectionChanged" Command="{Binding CambiarEstadoCommand}"/>
+                <behaviors1:EventToCommandBehavior Command="{Binding SelectionChangedCommand}" EventName="SelectionChanged"/>
             </listView:SfListView.Behaviors>
             <listView:SfListView.GroupHeaderTemplate>
                 <DataTemplate>
