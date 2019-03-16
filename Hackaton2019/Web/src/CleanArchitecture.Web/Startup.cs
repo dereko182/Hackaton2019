@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Reflection;
@@ -40,7 +41,10 @@ namespace CleanArchitecture.Web
 
             services.AddHangfire(x => x.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddMvc()
+            services.AddMvc().AddJsonOptions(options =>
+                {
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                })
                 .AddControllersAsServices()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -89,7 +93,12 @@ namespace CleanArchitecture.Web
             app.UseCookiePolicy();
 
             app.UseHangfireServer();
-            app.UseHangfireDashboard();
+
+            var options = new DashboardOptions
+            {
+                Authorization = new[] { new CustomAuthorizationFilter() }
+            };
+            app.UseHangfireDashboard("/hangfire", options);
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
@@ -100,10 +109,7 @@ namespace CleanArchitecture.Web
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
 
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<ChatHub>("/chatHub");
-            });
+            app.UseSignalR(routes => { routes.MapHub<ChatHub>("/chatHub"); });
 
             app.UseMvc(routes =>
             {

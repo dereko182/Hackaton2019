@@ -18,6 +18,7 @@ namespace CleanArchitecture.Core.Specs
         public RanchoSpec() : base(x => true)
         {
             AddInclude(x => x.Lotes);
+            AddInclude(x => x.Productor);
             AddInclude("Lotes.Parcelas");
         }
     }
@@ -27,6 +28,13 @@ namespace CleanArchitecture.Core.Specs
         public ProductosSpec() : base(x => true)
         {
             AddInclude(x => x.Proveedor);
+        }
+    }
+    public class LaborSpec : BaseSpecification<Labor>
+    {
+        public LaborSpec() : base(x => true)
+        {
+            AddInclude(x => x.Fase);
         }
     }
 }
