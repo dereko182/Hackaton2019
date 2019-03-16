@@ -10,6 +10,7 @@ using System.Windows.Input;
 
 using Xamarin.Forms;
 using XamarinApp.Interfaces;
+using XamarinApp.Views;
 
 namespace XamarinApp.ViewModels
 {
@@ -41,8 +42,8 @@ namespace XamarinApp.ViewModels
         {
             var labor = obj.AddedItems[0] as LaborModel;
 
-            //if(labor.Estado.Equals("Fertilización"))
-            //    await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new AplicacionPage()));
+            if (labor.Fase.Equals("Fertilización"))
+                await Application.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new AplicacionPage()));
 
             var estadoNuevo = SiguienteEstado(labor.Estado);
             var res = await _userDialogs.ConfirmAsync(
