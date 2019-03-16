@@ -5,26 +5,20 @@ namespace CleanArchitecture.Web
 {
     public static class SeedData
     {
-        public static void PopulateTestData(AppDbContext dbContext)
+        public static void PopulateTestData(this AppDbContext dbContext)
         {
-            var toDos = dbContext.ToDoItems;
+            var toDos = dbContext.Ranchos;
             foreach (var item in toDos)
             {
                 dbContext.Remove(item);
             }
+
             dbContext.SaveChanges();
-            dbContext.ToDoItems.Add(new ToDoItem()
+            dbContext.Ranchos.Add(new Rancho()
             {
-                Title = "Test Item 1",
-                Description = "Test Description One"
-            });
-            dbContext.ToDoItems.Add(new ToDoItem()
-            {
-                Title = "Test Item 2",
-                Description = "Test Description Two"
+                Nombre = "Insurgentes"
             });
             dbContext.SaveChanges();
         }
-
     }
 }
