@@ -1,0 +1,38 @@
+﻿<h4>Dashboard</h4>
+
+<div class="row">
+
+    <div class="col-lg-6">
+        <ejs-accumulationchart id="container">
+            <e-accumulation-series-collection>
+                <e-accumulation-series dataSource="ViewBag.dataSource" xName="xValue" yName="yValue">
+                </e-accumulation-series>
+            </e-accumulation-series-collection>
+        </ejs-accumulationchart>
+    </div>
+    <div class="col-lg-6">
+        <ejs-chart id="container2">
+            <e-chart-primaryxaxis valueType="Category">
+            </e-chart-primaryxaxis>
+            <e-series-collection>
+                <e-series name="series1" xName="xValue" yName="yValue" dataSource="ViewBag.dataSource2"
+                          type="@Syncfusion.EJ2.Charts.ChartSeriesType.Line">
+                </e-series>
+            </e-series-collection>
+        </ejs-chart>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col">
+        <ejs-chart id="container3">
+            <e-chart-primaryxaxis valueType="Category">
+            </e-chart-primaryxaxis>
+            <e-series-collection>
+                <e-series name="series1" xName="xValue" yName="yValue" dataSource="ViewBag.dataSource3"
+                          type="@Syncfusion.EJ2.Charts.ChartSeriesType.Column">
+                </e-series>
+            </e-series-collection>
+        </ejs-chart>
+    </div>
+</div>

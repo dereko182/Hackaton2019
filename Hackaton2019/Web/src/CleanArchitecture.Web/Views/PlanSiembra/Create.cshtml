@@ -1,0 +1,77 @@
+﻿@model CleanArchitecture.Web.Models.PlanSiembraModel
+
+<div class="modal-dialog" role="document">
+    <form asp-action="Create" asp-antiforgery="true" class="modal-content forma-ajax--modal">
+        <div class="modal-header">
+            <h4 class="modal-title" id="addModal-label">Crear plan de siembra</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label asp-for="InicioProgramado">Inicio programado</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-car text-primary"></i></span>
+                    </div>
+                    <input type="date" asp-for="InicioProgramado" class="form-control" placeholder="Inicio programado" />
+                </div>
+                @*<span asp-validation-for="Marca" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="InicioReal">Inicio real</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-car text-primary"></i></span>
+                    </div>
+                    <input type="date" asp-for="InicioReal" class="form-control" placeholder="Inicio real" />
+                </div>
+                <span asp-validation-for="InicioReal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinProgramado">Fin programado</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-edit text-primary"></i></span>
+                    </div>
+                    <input type="date" asp-for="FinProgramado" class="form-control" placeholder="Fin programado" rows="5" />
+                </div>
+                <span asp-validation-for="FinProgramado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinReal">Fin real</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-edit text-primary"></i></span>
+                    </div>
+                    <input type="date" asp-for="FinReal" class="form-control" placeholder="Fin real" rows="5" />
+                </div>
+                @*<span asp-validation-for="FinProgramado" class="text-danger"></span>*@
+            </div>
+
+            <div class="form-group">
+                <label >Cultivos disponibles</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-edit text-primary"></i></span>
+                    </div>
+                    <select asp-for="CultivoId">
+
+                        @foreach(var item in Model.CultivosDisponibles)
+                        {
+                            <item value="@item.Id">@item.Nombre</item>
+                        }
+</select>
+                </div>
+                @*<span asp-validation-for="FinProgramado" class="text-danger"></span>*@
+            </div>
+            <div class="modal-errores text-danger"></div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+</div>

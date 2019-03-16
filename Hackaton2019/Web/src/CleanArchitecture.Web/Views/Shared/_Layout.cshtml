@@ -1,65 +1,127 @@
 ﻿<!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CleanArchitecture.Web</title>
+    @* Syncfusion Essential JS 2 Styles *@
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
 
-    <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+    @* Syncfusion Essential JS 2 Scripts *@
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>@ViewData["Title"] - CoreUI.Mvc</title>
+
+    <!-- Icons-->
+    <link href="~/lib/@@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <link href="~/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    @*<link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">*@
+    <link href="~/lib/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <environment include="Development">
+        <!-- Template styles -->
+        <link href="~/css/style.css" rel="stylesheet">
+        <link href="~/vendors/pace-progress/css/pace.css" rel="stylesheet">
+        <!-- styles tweaks -->
+        <link rel="stylesheet" href="~/css/site.css">
     </environment>
-    <environment names="Staging,Production">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+
+    <environment exclude="Development">
+        <!-- Template styles -->
+        <link href="~/css/style.min.css" rel="stylesheet" asp-append-version="true">
+        <link href="~/vendors/pace-progress/css/pace.min.css" rel="stylesheet" asp-append-version="true">
+        <!-- styles tweaks -->
+        <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true">
     </environment>
+
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CleanArchitecture.Web</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - CleanArchitecture.Web</p>
-        </footer>
-    </div>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show bg-gray-200">
 
-    <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- APP-HEADER-->
+    <partial name="_app-header" />
+    <!-- /APP-HEADER-->
+    @*<partial name="_CookieConsentPartial" />*@
+
+    <div class="app-body">
+        <div class="sidebar">
+
+            <!-- SIDEBAR-NAV -->
+            <partial name="_sidebar-nav" />
+            <!-- /SIDEBAR-NAV -->
+
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+        <main class="main">
+
+            <!-- VIEW-BREADCRUMBS -->
+            @RenderSection("Breadcrumbs", required: false)
+            <!-- /VIEW-BREADCRUMBS -->
+
+            <div class="container-fluid">
+
+                <!-- VIEW-STYLES -->
+                @RenderSection("Styles", required: false)
+                <!-- /VIEW-STYLES -->
+
+                <div class="animated fadeIn">
+
+                    <!-- VIEW-CONTENT -->
+                    @RenderBody()
+                    <!-- /VIEW-CONTENT -->
+
+                </div>
+
+                <!-- VIEW-MODALS -->
+                @RenderSection("Modals", required: false)
+                <!-- /VIEW-MODALS -->
+
+            </div>
+        </main>
+
+        <!-- ASIDE-MENU -->
+        <partial name="_aside-menu" />
+        <!-- /ASIDE-MENU -->
+
+    </div>
+    <footer class="app-footer">
+        <div>
+            <a href="https://coreui.io">CoreUI</a>
+            <span>&copy; 2018 creativeLabs.</span>
+        </div>
+        <div class="ml-auto">
+            <span>Powered by</span>
+            <a href="https://coreui.io">CoreUI</a>
+        </div>
+    </footer>
+
+   
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery/jquery.form.min.js"></script>
+    <script src="~/lib/jquery/jquery.validate.min.js"></script>
+    <script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/pace-progress/pace.min.js"></script>
+    <script src="~/lib/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="~/lib/@@coreui/coreui/dist/js/coreui.min.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>s
+    <environment include="Development">
         <script src="~/js/site.js" asp-append-version="true"></script>
+
     </environment>
-    <environment names="Staging,Production">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        </script>
+    <environment exclude="Development">
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
-@await RenderSectionAsync("scripts", required: false).ConfigureAwait(false)
+    <ejs-scripts></ejs-scripts>
+    <!-- VIEW-SCRIPTS -->
+    @RenderSection("Scripts", required: false)
+    <!-- /VIEW-SCRIPTS -->
+
 </body>
 </html>

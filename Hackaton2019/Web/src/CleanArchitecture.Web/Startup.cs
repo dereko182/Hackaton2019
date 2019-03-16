@@ -90,6 +90,9 @@ namespace CleanArchitecture.Web
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
+            //Register Syncfusion license
+             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Nzc4MzFAMzEzNjJlMzQyZTMwWDh0QWc0MmJXSHllVjNyelFFODV3VW9La1A1OEdWdTBUL2NLWFJZRm4vdz0=;Nzc4MzJAMzEzNjJlMzQyZTMwZmJIUHhweXFwUW80UFdtVVkxNU1hd2FEazlFNU9FcENiY2RLSHZKcVZFOD0=;Nzc4MzNAMzEzNjJlMzQyZTMwU2pCenBqQitJZXFPNHFMRlVyb0ZKRWN4Yk9sNzNrdGprOXZZMHArOE9VOD0=;Nzc4MzRAMzEzNjJlMzQyZTMwWUZnYlZ1TmdDUTk1WWZ6SFlmYUZpSjA1d1poTGVTUmpMRkp3b3BsWUplYz0=");
+
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
