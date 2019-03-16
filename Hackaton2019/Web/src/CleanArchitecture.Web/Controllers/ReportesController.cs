@@ -22,6 +22,23 @@ namespace CleanArchitecture.Web.Controllers
             var parcelasiembra = _repository.List<PlanSiembraParcela>().ToList();
             var cultivos = _repository.List<Cultivo>().ToList();
             var planSiembras = _repository.List(new PlanSiembraSpec()).ToList();
+
+            List<ChartData> chartData6 = new List<ChartData> {
+                new ChartData { xValue = "TERMINADO", yValue = 201 },
+               
+                new ChartData { xValue = "CANCELADO POR PLAGA", yValue = 54 },
+              
+                new ChartData { xValue = "ACTIVO", yValue = 60 }};
+            ViewBag.chartData6 = chartData6;
+
+            List<ChartData> chartData7 = new List<ChartData> ();
+            foreach (var item in planSiembras)
+            {
+                chartData7.Add(new ChartData { xValue = item.Cultivo.Nombre, yValue = new Random().Next(100)});
+            }
+            ViewBag.chartData7 = chartData7;
+
+
             var fungicidas = _repository.List<Producto>().ToList().Where(m => m.Categoria.Equals("FUNGICIDA BIOLOGICO"));
             List<ChartData> chartData3 = new List<ChartData>();
             foreach (var item in parcelas) {
