@@ -2,6 +2,8 @@
 using Autofac.Extensions.DependencyInjection;
 using CleanArchitecture.Core.SharedKernel;
 using CleanArchitecture.Infrastructure.Data;
+using CleanArchitecture.Web.Hubs;
+using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -36,11 +38,15 @@ namespace CleanArchitecture.Web
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddHangfire(x => x.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddMvc()
                 .AddControllersAsServices()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" }); });
+
+            services.AddSignalR();
 
             return BuildDependencyInjectionProvider(services);
         }
@@ -82,11 +88,19 @@ namespace CleanArchitecture.Web
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseHangfireServer();
+            app.UseHangfireDashboard();
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chatHub");
+            });
 
             app.UseMvc(routes =>
             {

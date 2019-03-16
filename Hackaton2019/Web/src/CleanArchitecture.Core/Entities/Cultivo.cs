@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using CleanArchitecture.Core.Extensions;
+﻿using CleanArchitecture.Core.Extensions;
 using CleanArchitecture.Core.SharedKernel;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CleanArchitecture.Core.Entities
 {
