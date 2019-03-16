@@ -2,20 +2,26 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:XamarinApp.Views"
-            x:Class="XamarinApp.Views.MainPage">
+            x:Class="XamarinApp.Views.MainPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="Black"
+            android:TabbedPage.BarSelectedItemColor="Black"
+            android:TabbedPage.IsSwipePagingEnabled="True"
+            BarBackgroundColor="{StaticResource Primary}">
     <TabbedPage.Children>
-        <NavigationPage Title="Browse">
+        <NavigationPage Title="Mapa">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_feed.png"/>
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
+                <views:MapaPage />
             </x:Arguments>
         </NavigationPage>
         
-        <NavigationPage Title="About">
+        <!--<NavigationPage Title="Login">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_about.png"/>
@@ -24,6 +30,6 @@
             <x:Arguments>
                 <views:AboutPage />
             </x:Arguments>
-        </NavigationPage>
+        </NavigationPage>-->
     </TabbedPage.Children>
 </TabbedPage>

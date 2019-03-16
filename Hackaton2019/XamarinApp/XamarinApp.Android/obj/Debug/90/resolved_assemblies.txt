@@ -8,6 +8,7 @@ C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\Xama
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp.Android\obj\Debug\90\android\assets\MvvmHelpers.dll
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp.Android\obj\Debug\90\android\assets\NetTopologySuite.CoordinateSystems.dll
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp.Android\obj\Debug\90\android\assets\NetTopologySuite.dll
+C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp.Android\obj\Debug\90\android\assets\RestSharp.dll
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp.Android\obj\Debug\90\android\assets\Syncfusion.Core.XForms.Android.dll
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp.Android\obj\Debug\90\android\assets\Syncfusion.Core.XForms.dll
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp.Android\obj\Debug\90\android\assets\Syncfusion.Licensing.dll

@@ -113,6 +113,7 @@ class MonoPackageManager_Resources {
 		"MvvmHelpers.dll",
 		"NetTopologySuite.CoordinateSystems.dll",
 		"NetTopologySuite.dll",
+		"RestSharp.dll",
 		"Syncfusion.Core.XForms.Android.dll",
 		"Syncfusion.Core.XForms.dll",
 		"Syncfusion.Licensing.dll",

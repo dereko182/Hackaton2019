@@ -1,5 +1,5 @@
-BundleAssemblies=False
-AotAssemblies=False
+BundleAssemblies=false
+AotAssemblies=false
 AndroidAotMode=
 ExplicitCrunch=False
 EnableProguard=
@@ -18,7 +18,7 @@ AndroidUseLatestPlatformSdk=false
 TargetFrameworkVersion=v9.0
 AndroidCreatePackagePerAbi=
 OS=Windows_NT
-DesignTimeBuild=
+DesignTimeBuild=true
 AndroidIncludeDebugSymbols=True
-AdbTarget=-s 00cd2a7a0904
+AdbTarget=
 AdbOptions=

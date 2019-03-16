@@ -4,6 +4,7 @@ GeoAPI
 MvvmHelpers
 NetTopologySuite.CoordinateSystems
 NetTopologySuite
+RestSharp
 Syncfusion.Core.XForms.Android
 Syncfusion.Core.XForms
 Syncfusion.Licensing
@@ -45,3 +46,4 @@ netstandard
 System.Resources.ResourceManager
 System.Reflection.Extensions
 System.Diagnostics.Tools
+Ardalis.GuardClauses

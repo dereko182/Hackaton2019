@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using XamarinApp.Interfaces;
 using XamarinApp.Models;
 
 namespace XamarinApp.Services

@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Ardalis.GuardClauses/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Ardalis.GuardClauses.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Ardalis.GuardClauses.dll": {}
+        }
+      },
       "GeoAPI.CoordinateSystems/1.7.5": {
         "type": "package",
         "dependencies": {
@@ -61,6 +73,15 @@
         },
         "runtime": {
           "lib/netstandard1.0/MvvmHelpers.dll": {}
+        }
+      },
+      "RestSharp/106.6.9": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "Syncfusion.Licensing/16.4.0.54": {
@@ -274,12 +295,27 @@
           "build/Xamarin.Google.iOS.Maps.targets": {}
         }
       },
+      "CleanArchitecture.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Ardalis.GuardClauses": "1.2.3"
+        },
+        "compile": {
+          "bin/placeholder/CleanArchitecture.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CleanArchitecture.Core.dll": {}
+        }
+      },
       "XamarinApp/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "CleanArchitecture.Core": "1.0.0",
           "NetTopologySuite": "1.15.2",
           "Refractored.MvvmHelpers": "1.3.0",
+          "RestSharp": "106.6.9",
           "Syncfusion.Xamarin.SfBackdrop": "16.4.0.54",
           "Xamarin.Forms": "3.4.0.1008975",
           "Xamarin.Forms.GoogleMaps": "3.0.4",
@@ -294,6 +330,18 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Ardalis.GuardClauses/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Ardalis.GuardClauses.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Ardalis.GuardClauses.dll": {}
+        }
+      },
       "GeoAPI.CoordinateSystems/1.7.5": {
         "type": "package",
         "dependencies": {
@@ -353,6 +401,15 @@
         },
         "runtime": {
           "lib/netstandard1.0/MvvmHelpers.dll": {}
+        }
+      },
+      "RestSharp/106.6.9": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "Syncfusion.Licensing/16.4.0.54": {
@@ -566,12 +623,27 @@
           "build/Xamarin.Google.iOS.Maps.targets": {}
         }
       },
+      "CleanArchitecture.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Ardalis.GuardClauses": "1.2.3"
+        },
+        "compile": {
+          "bin/placeholder/CleanArchitecture.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CleanArchitecture.Core.dll": {}
+        }
+      },
       "XamarinApp/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "CleanArchitecture.Core": "1.0.0",
           "NetTopologySuite": "1.15.2",
           "Refractored.MvvmHelpers": "1.3.0",
+          "RestSharp": "106.6.9",
           "Syncfusion.Xamarin.SfBackdrop": "16.4.0.54",
           "Xamarin.Forms": "3.4.0.1008975",
           "Xamarin.Forms.GoogleMaps": "3.0.4",
@@ -586,6 +658,18 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Ardalis.GuardClauses/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Ardalis.GuardClauses.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Ardalis.GuardClauses.dll": {}
+        }
+      },
       "GeoAPI.CoordinateSystems/1.7.5": {
         "type": "package",
         "dependencies": {
@@ -645,6 +729,15 @@
         },
         "runtime": {
           "lib/netstandard1.0/MvvmHelpers.dll": {}
+        }
+      },
+      "RestSharp/106.6.9": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "Syncfusion.Licensing/16.4.0.54": {
@@ -858,12 +951,27 @@
           "build/Xamarin.Google.iOS.Maps.targets": {}
         }
       },
+      "CleanArchitecture.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Ardalis.GuardClauses": "1.2.3"
+        },
+        "compile": {
+          "bin/placeholder/CleanArchitecture.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CleanArchitecture.Core.dll": {}
+        }
+      },
       "XamarinApp/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "CleanArchitecture.Core": "1.0.0",
           "NetTopologySuite": "1.15.2",
           "Refractored.MvvmHelpers": "1.3.0",
+          "RestSharp": "106.6.9",
           "Syncfusion.Xamarin.SfBackdrop": "16.4.0.54",
           "Xamarin.Forms": "3.4.0.1008975",
           "Xamarin.Forms.GoogleMaps": "3.0.4",
@@ -878,6 +986,18 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Ardalis.GuardClauses/1.2.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Ardalis.GuardClauses.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Ardalis.GuardClauses.dll": {}
+        }
+      },
       "GeoAPI.CoordinateSystems/1.7.5": {
         "type": "package",
         "dependencies": {
@@ -937,6 +1057,15 @@
         },
         "runtime": {
           "lib/netstandard1.0/MvvmHelpers.dll": {}
+        }
+      },
+      "RestSharp/106.6.9": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "Syncfusion.Licensing/16.4.0.54": {
@@ -1150,12 +1279,27 @@
           "build/Xamarin.Google.iOS.Maps.targets": {}
         }
       },
+      "CleanArchitecture.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Ardalis.GuardClauses": "1.2.3"
+        },
+        "compile": {
+          "bin/placeholder/CleanArchitecture.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CleanArchitecture.Core.dll": {}
+        }
+      },
       "XamarinApp/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "CleanArchitecture.Core": "1.0.0",
           "NetTopologySuite": "1.15.2",
           "Refractored.MvvmHelpers": "1.3.0",
+          "RestSharp": "106.6.9",
           "Syncfusion.Xamarin.SfBackdrop": "16.4.0.54",
           "Xamarin.Forms": "3.4.0.1008975",
           "Xamarin.Forms.GoogleMaps": "3.0.4",
@@ -1171,6 +1315,19 @@
     }
   },
   "libraries": {
+    "Ardalis.GuardClauses/1.2.3": {
+      "sha512": "vbseGD73Uo7zqeX0vYyEVDv3EWn4AMA3X+D8otpxn5GLPeXQjkVIw/ITUMAzco72EAHDogy2T4UQtq99Dt8Pug==",
+      "type": "package",
+      "path": "ardalis.guardclauses/1.2.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ardalis.guardclauses.1.2.3.nupkg.sha512",
+        "ardalis.guardclauses.nuspec",
+        "lib/net40/Ardalis.GuardClauses.dll",
+        "lib/netstandard1.1/Ardalis.GuardClauses.dll"
+      ]
+    },
     "GeoAPI.CoordinateSystems/1.7.5": {
       "sha512": "JBcvkeQFjCW9NTfkII5WiJNmnv0ZtYA/VTVljbIqDFWBJ8kHwu2UHd2MVStD/VVHVnLoyNcDIapsuTENdlyF3g==",
       "type": "package",
@@ -1435,6 +1592,21 @@
         "lib/netstandard1.0/MvvmHelpers.xml",
         "refractored.mvvmhelpers.1.3.0.nupkg.sha512",
         "refractored.mvvmhelpers.nuspec"
+      ]
+    },
+    "RestSharp/106.6.9": {
+      "sha512": "/IAQTwlnlQcjlIyvelf+rhQcCRPy/r/0MftpNbff/D7PZVnmVXE4AnHk/F4NJJJEZbI4M+QTglB+xFkAyzr+9A==",
+      "type": "package",
+      "path": "restsharp/106.6.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/RestSharp.dll",
+        "lib/net452/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.106.6.9.nupkg.sha512",
+        "restsharp.nuspec"
       ]
     },
     "Syncfusion.Licensing/16.4.0.54": {
@@ -1742,6 +1914,11 @@
         "xamarin.google.ios.maps.2.5.0.nupkg.sha512",
         "xamarin.google.ios.maps.nuspec"
       ]
+    },
+    "CleanArchitecture.Core/1.0.0": {
+      "type": "project",
+      "path": "../../Web/src/CleanArchitecture.Core/CleanArchitecture.Core.csproj",
+      "msbuildProject": "../../Web/src/CleanArchitecture.Core/CleanArchitecture.Core.csproj"
     },
     "XamarinApp/1.0.0": {
       "type": "project",

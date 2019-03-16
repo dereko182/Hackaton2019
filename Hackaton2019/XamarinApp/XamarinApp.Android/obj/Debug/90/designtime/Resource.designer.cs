@@ -1782,44 +1782,47 @@ namespace XamarinApp.Droid
 			// aapt resource value: 0x7F050005
 			public const int colorAccent = 2131034117;
 			
+			// aapt resource value: 0x7F050006
+			public const int colorBackground = 2131034118;
+			
 			// aapt resource value: 0x7F050003
 			public const int colorPrimary = 2131034115;
 			
 			// aapt resource value: 0x7F050004
 			public const int colorPrimaryDark = 2131034116;
 			
-			// aapt resource value: 0x7F050105
-			public const int common_google_signin_btn_text_dark = 2131034373;
-			
-			// aapt resource value: 0x7F050108
-			public const int common_google_signin_btn_text_dark_default = 2131034376;
+			// aapt resource value: 0x7F050106
+			public const int common_google_signin_btn_text_dark = 2131034374;
 			
 			// aapt resource value: 0x7F050109
-			public const int common_google_signin_btn_text_dark_disabled = 2131034377;
+			public const int common_google_signin_btn_text_dark_default = 2131034377;
 			
 			// aapt resource value: 0x7F050110
-			public const int common_google_signin_btn_text_dark_focused = 2131034384;
+			public const int common_google_signin_btn_text_dark_disabled = 2131034384;
 			
 			// aapt resource value: 0x7F050111
-			public const int common_google_signin_btn_text_dark_pressed = 2131034385;
-			
-			// aapt resource value: 0x7F050106
-			public const int common_google_signin_btn_text_light = 2131034374;
+			public const int common_google_signin_btn_text_dark_focused = 2131034385;
 			
 			// aapt resource value: 0x7F050112
-			public const int common_google_signin_btn_text_light_default = 2131034386;
-			
-			// aapt resource value: 0x7F050113
-			public const int common_google_signin_btn_text_light_disabled = 2131034387;
-			
-			// aapt resource value: 0x7F050114
-			public const int common_google_signin_btn_text_light_focused = 2131034388;
-			
-			// aapt resource value: 0x7F050115
-			public const int common_google_signin_btn_text_light_pressed = 2131034389;
+			public const int common_google_signin_btn_text_dark_pressed = 2131034386;
 			
 			// aapt resource value: 0x7F050107
-			public const int common_google_signin_btn_tint = 2131034375;
+			public const int common_google_signin_btn_text_light = 2131034375;
+			
+			// aapt resource value: 0x7F050113
+			public const int common_google_signin_btn_text_light_default = 2131034387;
+			
+			// aapt resource value: 0x7F050114
+			public const int common_google_signin_btn_text_light_disabled = 2131034388;
+			
+			// aapt resource value: 0x7F050115
+			public const int common_google_signin_btn_text_light_focused = 2131034389;
+			
+			// aapt resource value: 0x7F050116
+			public const int common_google_signin_btn_text_light_pressed = 2131034390;
+			
+			// aapt resource value: 0x7F050108
+			public const int common_google_signin_btn_tint = 2131034376;
 			
 			// aapt resource value: 0x7F060027
 			public const int design_bottom_navigation_shadow_color = 2131099687;

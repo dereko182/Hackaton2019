@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
-
+using XamarinApp.Interfaces;
 using XamarinApp.Models;
 using XamarinApp.Services;
 

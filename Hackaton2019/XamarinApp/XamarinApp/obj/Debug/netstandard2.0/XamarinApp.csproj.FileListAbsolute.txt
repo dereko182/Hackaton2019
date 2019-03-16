@@ -11,6 +11,7 @@ C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\Xama
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp\obj\Debug\netstandard2.0\XamarinApp.csproj.CoreCompileInputs.cache
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp\obj\Debug\netstandard2.0\XamarinApp.AssemblyInfoInputs.cache
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp\obj\Debug\netstandard2.0\XamarinApp.AssemblyInfo.cs
-C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp\obj\Debug\netstandard2.0\XamarinApp.dll
 C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp\obj\Debug\netstandard2.0\XamarinApp.pdb
+C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp\obj\Debug\netstandard2.0\XamarinApp.csprojAssemblyReference.cache
+C:\Users\Arturo\source\repos\dereko182\Hackaton2019\Hackaton2019\XamarinApp\XamarinApp\obj\Debug\netstandard2.0\XamlC.stamp
