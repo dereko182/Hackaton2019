@@ -34,7 +34,7 @@ function prepararPeticion(arr, $form, options) {
     $form.find(".modal-errores").html("");
 
     if ($form.valid()) {
-        monoloading('show');
+     //   monoloading('show');
         button.prop("disabled", true);
     } else {
         Console.log("error");
@@ -48,7 +48,7 @@ function ejecutarRespuesta(responseText, statusText, xhr, $form) {
     var $modal = $form.parents(".modal");
 
     $modal.find('button[type="submit"]').prop("disabled", false);
-    monoloading('hide');
+  //  monoloading('hide');
 
     $modal.find(".modal-errores").html("");
     if (json.status === "ok") {
@@ -61,7 +61,7 @@ function ejecutarRespuesta(responseText, statusText, xhr, $form) {
 }
 function mostrarError(xhr, statusText, errorThrown, $form) {
     $form.find('[type="submit"]').prop("disabled", false);
-    monoloading('hide');
+ //   monoloading('hide');
     if (xhr.status === 401) {
         $form.find(".modal-errores")
             .html("<p>Tu sesión caducó, por favor <a href='/' target='_blank'>inicia sesión</a> e intenta de nuevo</p>");
@@ -165,7 +165,7 @@ function ejecutarRespuestaOld(responseText, statusText, xhr, $form) {
         Cookies.set("consola-toast", json.body);
         window.location.reload();
     } else {
-        monoloading('hide');
+      //  monoloading('hide');
         $modal.find('button[type="submit"]').prop("disabled", false);
         $modal.find(".modal-errores").html(`<p>${json.body}</p>`);
     }
@@ -174,7 +174,7 @@ function ejecutarRespuestaForma(responseText, statusText, xhr, $form) {
     var json = responseText;
 
     $form.find('button[type="submit"]').prop("disabled", false);
-    monoloading('hide');
+   // monoloading('hide');
 
     $form.find(".modal-errores").html("");
     if (json.status === "ok") {

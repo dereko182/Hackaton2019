@@ -39,8 +39,10 @@ namespace CleanArchitecture.Web
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddHangfire(x => x.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection")));
+          
 
             services.AddMvc()
+                 .AddJsonOptions(x => { x.SerializerSettings.ContractResolver = null; })
                 .AddControllersAsServices()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

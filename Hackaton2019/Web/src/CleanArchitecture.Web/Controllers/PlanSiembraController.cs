@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CleanArchitecture.Core.Entities;
 using CleanArchitecture.Core.Interfaces;
+using CleanArchitecture.Core.Specs;
 using CleanArchitecture.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Syncfusion.EJ2.Base;
@@ -20,12 +21,38 @@ namespace CleanArchitecture.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> GetData([FromBody] DataManagerRequest dm)
         {
-            var dataSource =  _repository.List<PlanSiembra>().ToList();
+           var DataSource = _repository.List(new PlanSiembraSpec()).Select(c => new { id = c.Id, finProgramado = c.FinProgramado, cultivo = c.Cultivo.Nombre, inicioProgramado = c.InicioProgramado, inicioReal = c.InicioReal, finReal = c.FinReal });
 
-            return  Json(new { result = dataSource, count = dataSource.Count });
+            DataOperations operation = new DataOperations();
+            if (dm.Search != null && dm.Search.Count > 0)
+            {
+                DataSource = operation.PerformSearching(DataSource, dm.Search);  //Search
+            }
+            if (dm.Sorted != null && dm.Sorted.Count > 0) //Sorting
+            {
+                DataSource = operation.PerformSorting(DataSource, dm.Sorted);
+            }
+            if (dm.Where != null && dm.Where.Count > 0) //Filtering
+            {
+                DataSource = operation.PerformFiltering(DataSource, dm.Where, dm.Where[0].Operator);
+            }
+            int count = DataSource.Count();
+            if (dm.Skip != 0)
+            {
+                DataSource = operation.PerformSkip(DataSource, dm.Skip);   //Paging
+            }
+            if (dm.Take != 0)
+            {
+                DataSource = operation.PerformTake(DataSource, dm.Take);
+            }
+            return dm.RequiresCounts ? Json(new { result = DataSource, count = count }) : Json(DataSource);
+            //var dataSource = _repository.List(new PlanSiembraSpec()).Select(c => new  { id = c.Id, finProgramado = c.FinProgramado, cultivo = c.Cultivo.Nombre, inicioProgramado = c.InicioProgramado, inicioReal = c.InicioReal, finReal = c.FinReal }).ToList();
+
+            //return Json(new { result = dataSource, count = dataSource.Count });
         }
         public IActionResult Index()
         {
+           
             return View();
         }
         public IActionResult Create() {
@@ -40,7 +67,7 @@ namespace CleanArchitecture.Web.Controllers
                 _repository.Add(planSiembra);
             }
          
-            return View("Index");
+            return RedirectToAction("Index");
             
         }
         public IActionResult Edit()

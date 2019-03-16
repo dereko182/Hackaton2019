@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Plan de siembra";
-   // var cols = new List<object> { new { field = "marca", direction = "Ascending" } };
+    var cols = new List<object> { new { field = "cultivo", direction = "Ascending" } };
 }
 <div class=" container-fluid">
     <h4 class="mt-3">
@@ -16,18 +16,24 @@
     </section>
     <div class="animated fadeIn">
         <div class="datatable-container">
-            <ejs-grid id="Grid" class="datatable" allowPaging="true" allowSorting="true" toolbar="@(new List<string>() {"Search"})">
+           
+            <ejs-grid id="Grid"  allowPaging="true" allowSorting="true" toolbar="@(new List<string>() {"Search"})">
                 <e-data-manager url="@Url.Action("GetData")" adaptor="UrlAdaptor"></e-data-manager>
-                @*<e-grid-searchsettings fields="@(new[] {"Marca"})"></e-grid-searchsettings>*@
-                @*<e-grid-sortsettings columns="cols"></e-grid-sortsettings>*@
+               <e-grid-searchsettings fields="@(new[] {"Cultivo"})"></e-grid-searchsettings>
+                <e-grid-sortsettings columns="cols"></e-grid-sortsettings>
                 <e-grid-columns>
                     <e-grid-column field="inicioProgramado" headerText="Inicio programado" width="20"></e-grid-column>
                     <e-grid-column field="inicioReal" headerText="Inicio real" width="20"></e-grid-column>
                     <e-grid-column field="finProgramado" headerText="Fin programado" textAlign="Center" width="25"></e-grid-column>
                     <e-grid-column field="finReal" headerText="Fin Real" textAlign="Center" width="20"></e-grid-column>
-                    <e-grid-column field="cultivo" headerText="Cultivo" template="#actionDescripcionButtons" textAlign="Center" width="25"></e-grid-column>
-                    <e-grid-column headerText="" width="20" template="#actionButtons" textAlign="Right"></e-grid-column>
+                    <e-grid-column field="cultivo" headerText="Cultivo" textAlign="Center" width="20"></e-grid-column>
+                    @*<e-grid-column>
+                        <a href="#editModal" data-id="${id}" title="Editar" class="tip btn btn-sm btn-light mr-2 btn-modal-action"><i class="fa fa-fw fa-edit"></i></a>
+                        <a href="#deleteModal" data-id="${id}" title="Eliminar" class="tip btn btn-sm btn-light btn-modal-action"><i class="fa fa-fw fa-trash"></i></a>
+                    </e-grid-column>*@
+                    @*<e-grid-column headerText="" width="20" template="#actionButtons" textAlign="Right"></e-grid-column>*@
                 </e-grid-columns>
+
             </ejs-grid>
         </div>
     </div>
@@ -47,5 +53,12 @@
         </div>
     </script>
   
- 
+ <script>
+    $('#submitbtn').submit(function (e) {
+        e.preventDefault();
+        // Coding
+        $('#addModal').modal('toggle'); //or  $('#IDModal').modal('hide');
+        return true;
+    });
+</script>
     }
