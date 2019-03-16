@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Plan de siembra";
+   // var cols = new List<object> { new { field = "marca", direction = "Ascending" } };
+}
+<div class=" container-fluid">
+    <h4 class="mt-3">
+        Planes de siembra disponibles
+    </h4>
+    <section class="mt-3">
+        <ul class="list-inline">
+            <li>
+
+                <a href="#addModal" class="btn btn-primary btn-modal-action"><i class="fa fa-plus"></i> Agregar</a>
+            </li>
+        </ul>
+    </section>
+    <div class="animated fadeIn">
+        <div class="datatable-container">
+            <ejs-grid id="Grid" class="datatable" allowPaging="true" allowSorting="true" toolbar="@(new List<string>() {"Search"})">
+                <e-data-manager url="@Url.Action("GetData")" adaptor="UrlAdaptor"></e-data-manager>
+                @*<e-grid-searchsettings fields="@(new[] {"Marca"})"></e-grid-searchsettings>*@
+                @*<e-grid-sortsettings columns="cols"></e-grid-sortsettings>*@
+                <e-grid-columns>
+                    <e-grid-column field="inicioProgramado" headerText="Inicio programado" width="20"></e-grid-column>
+                    <e-grid-column field="inicioReal" headerText="Inicio real" width="20"></e-grid-column>
+                    <e-grid-column field="finProgramado" headerText="Fin programado" textAlign="Center" width="25"></e-grid-column>
+                    <e-grid-column field="finReal" headerText="Fin Real" textAlign="Center" width="20"></e-grid-column>
+                    <e-grid-column field="cultivo" headerText="Cultivo" template="#actionDescripcionButtons" textAlign="Center" width="25"></e-grid-column>
+                    <e-grid-column headerText="" width="20" template="#actionButtons" textAlign="Right"></e-grid-column>
+                </e-grid-columns>
+            </ejs-grid>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-focus-first" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal-label" data-url="@Url.Action("Create")"></div>
+<div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="addModal-label" data-url="@Url.Action("Edit")"></div>
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal-label" data-url="@Url.Action("Delete")"></div>
+
+
+@section Scripts{
+
+    <script id="actionButtons" type="text/x-template">
+        <div>
+            <a href="#editModal" data-id="${id}" title="Editar" class="tip btn btn-sm btn-light mr-2 btn-modal-action"><i class="fa fa-fw fa-edit"></i></a>
+            <a href="#deleteModal" data-id="${id}" title="Eliminar" class="tip btn btn-sm btn-light btn-modal-action"><i class="fa fa-fw fa-trash"></i></a>
+        </div>
+    </script>
+  
+ 
+    }
