@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:XamarinApp.ViewModels"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:behaviors="clr-namespace:XamarinApp.Behaviors"
+             xmlns:sync="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             x:Class="XamarinApp.Views.AplicacionPage"
+             Title="Aplicación de recetas">
+    <ContentPage.BindingContext>
+        <vm:AplicacionViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Picker x:Name="picker" HorizontalOptions="FillAndExpand"
+                    Title="Seleccione receta"
+                        SelectedItem="{Binding RecetaSeleccionada}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Gusano rosado</x:String>
+                            <x:String>Picudo de algodón</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                    <Picker.Behaviors>
+                        <behaviors:EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding CambioRecetaCommand}" />
+                    </Picker.Behaviors>
+                </Picker>
+                <sync:SfDataGrid ItemsSource="{Binding ProductosPorReceta}" ColumnSizer="Star"> 
+                    <sync:SfDataGrid.Columns x:TypeArguments="syncfusion:Columns">
+                        <sync:GridTextColumn HeaderText="Nombre" 
+                                   MappingName="CustomerID" />
+                        <sync:GridTextColumn HeaderText="Cantidad"
+                                   MappingName="Customer" />
+                        <sync:GridTextColumn HeaderText="Unidad"
+                                   MappingName="ShipCity" />
+                    </sync:SfDataGrid.Columns>
+                </sync:SfDataGrid>
+                <Button Style="{StaticResource PrimaryButton}" Text="Aplicar" HorizontalOptions="FillAndExpand" Command="{Binding VerLaboresCommand}"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

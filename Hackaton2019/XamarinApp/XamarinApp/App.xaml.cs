@@ -19,8 +19,8 @@ namespace XamarinApp
             DependencyService.Register<MapaService>();
             DependencyService.Register<LaborService>();
 
-           Current.MainPage = new LaboresPage(new ViewModels.LaboresViewModel());
-          // MainPage = new MainPage();
+           Current.MainPage = new AplicacionPage();
+          //MainPage = new MainPage();
         }
 
         protected override void OnStart()

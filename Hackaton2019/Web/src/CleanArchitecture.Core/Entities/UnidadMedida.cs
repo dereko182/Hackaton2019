@@ -3,9 +3,9 @@
     public enum UnidadMedida
     {
         Kg,
-        Lt,
-        Ml,
-        hA,
+        lts,
+        ml,
+        ha,
         mg
     }
 }
