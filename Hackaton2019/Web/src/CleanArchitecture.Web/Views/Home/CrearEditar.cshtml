@@ -1,0 +1,212 @@
+﻿@model CleanArchitecture.Core.Entities.Parcela
+@using CleanArchitecture.Core.Entities
+@using CleanArchitecture.Core.Interfaces
+@using CleanArchitecture.Core.Specs
+@inject IRepository Repository
+@{
+    ViewData["Title"] = "Registrar Parcela";
+    string ranchosExistentes = "";
+    string colores = "";
+
+    var rancho = Repository.List<Rancho>(new RanchoSpec()).FirstOrDefault();
+
+
+    foreach (var Parcela in rancho.Lotes.FirstOrDefault().Parcelas)
+    {
+        ranchosExistentes = Parcela.Poligono + "|" + ranchosExistentes;
+        colores = Parcela.Color + "|" + colores;
+    }
+}
+
+<style>
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
+    }
+</style>
+<input type="hidden" id="rancho" value="@rancho.Poligono" />
+<input type="hidden" id="parcelas" value="@ranchosExistentes">
+<input type="hidden" id="colores" value="@colores" />
+
+<div id="map"></div>
+
+<br />
+
+<form asp-controller="Home" asp-action="Guardar">
+    <input type="hidden" id="pNuevo" asp-for="@Model.Poligono" value="@rancho.Poligono" />
+
+    <button type="submit" class="btn btn-primary btn-guardar">
+        <i class="fa fa-floppy-o"></i> Guardar
+    </button>
+</form>
+
+
+
+
+
+@section scripts{
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9jAfoDNBFUJ6DcQHI9k1TMbuGgV0OSDs&callback=initMap"
+            async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.3/wicket.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.3/wicket-gmap3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsts/2.0.3/jsts.js"></script>
+
+    <script>
+
+        function initMap() {
+            var mapaEstaMoviendose = false;
+            var inputWkt = new Wkt.Wkt();
+
+            var rancho = $("#rancho").val();
+            //Inicializar una instancia de JSTS
+            var JTSreader = new jsts.io.WKTReader();
+
+            //Parseamos con JSTS el poligono a editar para determinar su centro y centrar el mapa
+            var JTSAreaAEditar = JTSreader.read(rancho);
+            var centroAreaAEditar = JTSAreaAEditar.getCentroid().getCoordinate();
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: centroAreaAEditar.y, lng: centroAreaAEditar.x },
+                zoom: 17
+            });
+
+            //Parseamos el string con Wicket para agregarlo al mapa
+            var areaExistenteWKT = new Wkt.Wkt();
+            areaExistenteWKT.read(rancho);
+
+            var poligonoAreaExistente = areaExistenteWKT.toObject();
+            var polyExistenteOptions = {
+                map: map,
+                editable: false,
+                draggable: false,
+                strokeColor: '#000000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#000000',
+                fillOpacity: 0.35
+            };
+
+            poligonoAreaExistente.setOptions(polyExistenteOptions);
+
+            //Parcelas
+            var arrays = $("#parcelas").val().split('|');
+            arrays.pop();
+            var colores = $("#colores").val().split('|');
+            colores.pop();
+            var JTSAreasExistentes = [];
+            //Parseamos el string con JSTS para hacer detección de colisión
+
+            //Iteramos el array de strings WKT de los poligonos existentes
+            arrays.forEach(function (area) {
+
+                //    //Parseamos el string con JSTS para hacer detección de colisión
+                JTSAreasExistentes.push(JTSreader.read(area));
+
+                //    //Parseamos el string con Wicket para agregarlo al mapa
+                var areaExistenteWKT = new Wkt.Wkt();
+                areaExistenteWKT.read(area);
+
+                var poligonoAreaExistente = areaExistenteWKT.toObject();
+                var polyExistenteOptions = {
+                    map: map,
+                    editable: false,
+                    draggable: false,
+                    strokeColor: '#000000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: colores[0],
+                    fillOpacity: 0.35
+                };
+
+                poligonoAreaExistente.setOptions(polyExistenteOptions);
+                colores.shift();
+            });
+
+            var WKTAreaServicio = $('#pNuevo').val();
+
+            inputWkt.read(WKTAreaServicio);
+            var polygon = inputWkt.toObject();
+
+            var polyOptions = {
+                map: map,
+                editable: true,
+                draggable: true,
+                strokeColor: '#0000FF',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#0000FF',
+                fillOpacity: 0.35
+            };
+
+            polygon.addListener('dragstart', handleAreaDragStart);
+            polygon.addListener('dragend', handleAreaDragEnd);
+            polygon.getPaths().forEach(function (path, index) {
+
+                google.maps.event.addListener(path, 'insert_at', handleAreaChanged);
+                google.maps.event.addListener(path, 'remove_at', handleAreaChanged);
+                google.maps.event.addListener(path, 'set_at', handleAreaChanged);
+            });
+
+            polygon.setOptions(polyOptions);
+            handleAreaChanged();
+
+            function handleAreaDragStart() {
+                mapaEstaMoviendose = true;
+            }
+
+            function handleAreaDragEnd() {
+                mapaEstaMoviendose = false;
+                handleAreaChanged();
+            }
+
+            function handleAreaChanged() {
+
+                //El poligono genera demasiados eventos al arrastrarlo, usamos esta variable para
+                //hacer un debounce
+                if (mapaEstaMoviendose) {
+                    return;
+                }
+
+                //console.log('Area Changed');
+
+                //Usamos wicket para convertir el poligono de google maps a un string WKT
+                var outputWkt = new Wkt.Wkt();
+                outputWkt.fromObject(polygon);
+                var wktAreaNueva = outputWkt.write();
+
+                //Parseamos el WKT nuevo con JSTS para verificar si colisiona con algun poligono existente
+                var JTSAreaNueva = JTSreader.read(wktAreaNueva);
+
+                var existenConflictos = JTSAreasExistentes.some(function (poligono) {
+                    return poligono.overlaps(JTSAreaNueva);
+                });
+
+                if (existenConflictos) {
+                    polygon.setOptions({
+                        fillColor: '#FF0000',
+                        strokeColor: '#F00'
+                    });
+
+                    $('#errorMapaAreaServicio').text('El area de la planta entra en conflicto con otras plantas');
+                    $('.btn-guardar-planta').attr("disabled", true);
+                }
+                else {
+                    polygon.setOptions({
+                        fillColor: '#0000FF',
+                        strokeColor: '#00F'
+                    });
+
+                    $('#errorMapaAreaServicio').text('');
+                    $('.btn-guardar-planta').removeAttr("disabled");
+
+                }
+
+                //Guardamos el WKT nuevo en el hidden input
+                $('#pNuevo').val(wktAreaNueva);
+
+            }
+        }
+    </script>
+}

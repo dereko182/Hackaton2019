@@ -61,17 +61,17 @@
 
                         @foreach(var item in Model.CultivosDisponibles)
                         {
-                            <item value="@item.Id">@item.Nombre</item>
+                            <option value="@item.Id">@item.Nombre</option>
                         }
 </select>
                 </div>
                 @*<span asp-validation-for="FinProgramado" class="text-danger"></span>*@
             </div>
-            <div class="modal-errores text-danger"></div>
+            @*<div class="modal-errores text-danger"></div>*@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button id="submitbtn" type="submit"  class="btn btn-primary">Guardar</button>
         </div>
     </form>
 </div>
