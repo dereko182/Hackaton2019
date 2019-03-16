@@ -3,12 +3,14 @@ using NetTopologySuite.Geometries;
 using NetTopologySuite.IO;
 using RestSharp;
 using SharedModels;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using XamarinApp.Interfaces;
 
 namespace XamarinApp.Services
 {
-    public class MapaService
+    public class MapaService : IMapaService
     {
         private RestClient _restClient = null;
         private GeometryService _geometryService;
@@ -42,6 +44,18 @@ namespace XamarinApp.Services
 
             //    listaAreas.Add(polygon);
             //}
+
+            return response.Data;
+        }
+
+        public async Task<List<LaborModel>> ObtenerLabores(int ranchoId)
+        {
+            var request = new RestRequest("api/Labores/{id}", Method.GET);
+            request.AddUrlSegment("id", ranchoId);
+            var response = await _restClient.ExecuteTaskAsync<List<LaborModel>>(request);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+                return null;
 
             return response.Data;
         }
