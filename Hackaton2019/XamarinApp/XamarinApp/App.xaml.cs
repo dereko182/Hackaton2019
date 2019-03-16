@@ -1,5 +1,4 @@
-﻿using RestSharp;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinApp.Services;
 using XamarinApp.Views;
@@ -19,8 +18,8 @@ namespace XamarinApp
             DependencyService.Register<MapaService>();
             DependencyService.Register<LaborService>();
 
-           Current.MainPage = new LaboresPage(new ViewModels.LaboresViewModel());
-          // MainPage = new MainPage();
+            Current.MainPage = new ChartPage();
+            // MainPage = new MainPage();
         }
 
         protected override void OnStart()
