@@ -714,20 +714,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jesús\\.nuget\\packages\\": {}
+    "C:\\Users\\Arturo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp.iOS\\XamarinApp.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp.iOS\\XamarinApp.iOS.csproj",
       "projectName": "XamarinApp.iOS",
-      "projectPath": "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp.iOS\\XamarinApp.iOS.csproj",
-      "packagesPath": "C:\\Users\\Jesús\\.nuget\\packages\\",
-      "outputPath": "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp.iOS\\obj\\",
+      "projectPath": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp.iOS\\XamarinApp.iOS.csproj",
+      "packagesPath": "C:\\Users\\Arturo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Jesús\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Arturo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -735,14 +735,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://ci.appveyor.com/nuget/iconize": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj": {
-              "projectPath": "D:\\Proyectos\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj"
+            "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj": {
+              "projectPath": "C:\\Users\\Arturo\\source\\repos\\dereko182\\Hackaton2019\\Hackaton2019\\XamarinApp\\XamarinApp\\XamarinApp.csproj"
             }
           }
         }
