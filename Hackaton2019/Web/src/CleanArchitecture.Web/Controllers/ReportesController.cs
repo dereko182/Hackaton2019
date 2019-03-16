@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CleanArchitecture.Core.Entities;
 using CleanArchitecture.Core.Interfaces;
+using CleanArchitecture.Core.Specs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.Web.Controllers
@@ -15,37 +17,33 @@ namespace CleanArchitecture.Web.Controllers
 }
         public IActionResult Index()
         {
-            List<ChartData> chartData3 = new List<ChartData>
-            {
-                new ChartData { xValue = "2014", yValue = 21 },
-                new ChartData { xValue = "2015", yValue = 24 },
-                new ChartData { xValue = "2016", yValue = 36 },
-                new ChartData { xValue = "2017", yValue = 38 },
-                new ChartData { xValue = "2018", yValue = 54 },
-                new ChartData { xValue = "2019", yValue = 57 },
-                new ChartData { xValue = "2020", yValue = 70 },
-            };
+            var plagas = _repository.List<Plaga>().ToList();
+            var parcelas = _repository.List<Parcela>().ToList();
+            var parcelasiembra = _repository.List<PlanSiembraParcela>().ToList();
+            var cultivos = _repository.List<Cultivo>().ToList();
+            var planSiembras = _repository.List(new PlanSiembraSpec()).ToList();
+            var fungicidas = _repository.List<Producto>().ToList().Where(m => m.Categoria.Equals("FUNGICIDA BIOLOGICO"));
+            List<ChartData> chartData3 = new List<ChartData>();
+            foreach (var item in parcelas) {
+                chartData3.Add(new ChartData { xValue = item.Nombre, yValue = parcelasiembra.Where(m => m.ParcelaId == item.Id).Count() });
+            }
             ViewBag.dataSource3 = chartData3;
-            List<ChartData> chartData = new List<ChartData>
+            List<ChartData> chartData = new List<ChartData>();
+            foreach(var item in cultivos)
             {
+                chartData.Add(new ChartData { xValue = item.Nombre, yValue = planSiembras.Select(m => m.Cultivo).Where(m => m.Id == item.Id).Count() });
+            }
+            List<ChartData> chartData4 = new List<ChartData>();
+            foreach (var item in fungicidas)
+            {
+                chartData4.Add(new ChartData { xValue = item.Nombre, yValue =  new Random().Next(30) });
+            }
 
-                new ChartData { xValue = "Chrome", yValue = 37 },
-                new ChartData { xValue = "UC Browser", yValue = 17 },
-                new ChartData { xValue = "iPhone", yValue = 19 },
-                new ChartData { xValue = "Others", yValue = 4  },
-                new ChartData { xValue = "Opera", yValue = 11 },
-                new ChartData { xValue = "Android", yValue = 12 },
-            };
-            List<ChartData> chartData2 = new List<ChartData>
-            {
-                new ChartData { xValue = "2014", yValue = 21 },
-                new ChartData { xValue = "2015", yValue = 24 },
-                new ChartData { xValue = "2016", yValue = 36 },
-                new ChartData { xValue = "2017", yValue = 38 },
-                new ChartData { xValue = "2018", yValue = 54 },
-                new ChartData { xValue = "2019", yValue = 57 },
-                new ChartData { xValue = "2020", yValue = 70 },
-            };
+            ViewBag.dataSource4 = chartData4;
+            List<ChartData> chartData2 = new List<ChartData>();
+            foreach (var item in plagas) {
+                chartData2.Add(new ChartData { xValue = item.Nombre, yValue = new Random().Next(40) });
+            }
             ViewBag.dataSource = chartData;
             
             ViewBag.dataSource2 = chartData2;
