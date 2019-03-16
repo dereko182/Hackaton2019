@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Core.Interfaces;
+﻿using CleanArchitecture.Core;
+using CleanArchitecture.Core.Interfaces;
 using CleanArchitecture.Core.SharedKernel;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -43,6 +44,16 @@ namespace CleanArchitecture.Infrastructure.Data
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
             _dbContext.SaveChanges();
+        }
+
+        public IReadOnlyList<T> List<T>(ISpecification<T> spec) where T : BaseEntity
+        {
+            return ApplySpecification(spec).ToList();
+        }
+
+        private IQueryable<T> ApplySpecification<T>(ISpecification<T> spec) where T : BaseEntity
+        {
+            return SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec);
         }
     }
 }

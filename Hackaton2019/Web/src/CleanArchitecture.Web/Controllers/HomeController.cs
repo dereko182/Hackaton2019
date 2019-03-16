@@ -7,7 +7,6 @@ namespace CleanArchitecture.Web.Controllers
     {
         public HomeController(AppDbContext db)
         {
-            db.PopulateTestData();
         }
 
         public IActionResult Index()
