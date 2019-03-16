@@ -4,35 +4,140 @@
 @inject IRepository Repository
 @{
     ViewData["Title"] = "Hackaton 2019";
-}
-<h1>Esquema</h1>
-<ul>
-    @foreach (var p in Repository.List<Productor>(new ProductorSpec(x => true)))
+    string ranchosExistentes = "";
+    string colores = "";
+
+    var rancho = Repository.List<Rancho>(new RanchoSpec()).FirstOrDefault();
+
+
+    foreach (var Parcela in rancho.Lotes.FirstOrDefault().Parcelas)
     {
-        <li>
-            @p.Nombre
-            <ul>
-                Ranchos
-                @foreach (var r in p.Ranchos)
-                {
-                    <li>
-                        @r.Nombre
-                        Lotes
-                        @foreach (var l in r.Lotes)
-                        {
+        ranchosExistentes = Parcela.Poligono + "|" + ranchosExistentes;
+    }
+}
+
+<style>
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px; /* The height is 400 pixels */
+        width: 100%; /* The width is the width of the web page */
+    }
+</style>
+
+<input type="hidden" id="rancho" value="@rancho.Poligono"/>
+<input type="hidden" id="parcelas" value="@ranchosExistentes">
+<input type="hidden" id="colores" value="@colores"/>
+
+<div id="map"></div>
+
+@*<h1>Esquema</h1>
+    <ul>
+        @foreach (var p in Repository.List<Productor>(new ProductorSpec(x => true)))
+        {
+            <li>
+                @p.Nombre
+                <ul>
+                    Ranchos
+                    @foreach (var r in p.Ranchos)
+                    {
                         <li>
-                            @l.Catastro
-                        </li>
-                    }
+                            @r.Nombre
+                            Lotes
+                            @foreach (var l in r.Lotes)
+                            {
+                            <li>
+                                @l.Catastro
+                            </li>
+                        }
+                    </li>
+                }
+                </ul>
                 </li>
             }
-            </ul>
-            </li>
+        Productos
+        <ul>
+            @foreach (var p in Repository.List<Producto>(new ProductosSpec()))
+            {
+                <li>@p.Nombre @p.Categoria @p.UnidadMedida</li>
+            }
+        </ul>*@
+
+@section scripts{
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9jAfoDNBFUJ6DcQHI9k1TMbuGgV0OSDs&callback=initMap"
+            async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.3/wicket.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.3/wicket-gmap3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsts/2.0.3/jsts.js"></script>
+
+    <script>
+
+        function initMap() {
+            
+            var rancho = $("#rancho").val();
+            //Inicializar una instancia de JSTS
+            var JTSreader = new jsts.io.WKTReader();
+
+            //Parseamos con JSTS el poligono a editar para determinar su centro y centrar el mapa
+            var JTSAreaAEditar = JTSreader.read(rancho);
+            var centroAreaAEditar = JTSAreaAEditar.getCentroid().getCoordinate();
+            
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: centroAreaAEditar.y, lng: centroAreaAEditar.x },
+                zoom: 17
+            });
+
+            //Parseamos el string con Wicket para agregarlo al mapa
+            var areaExistenteWKT = new Wkt.Wkt();
+            areaExistenteWKT.read(rancho);
+
+            var poligonoAreaExistente = areaExistenteWKT.toObject();
+            var polyExistenteOptions = {
+                map: map,
+                editable: false,
+                draggable: false,
+                strokeColor: '#000000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#000000',
+                fillOpacity: 0.35
+            };
+
+            poligonoAreaExistente.setOptions(polyExistenteOptions);
+
+            //Parcelas
+            var arrays = $("#parcelas").val().split('|');
+            arrays.pop();
+            var colores = $("#colores").val().split('|');
+            colores.pop();
+            var JTSAreasExistentes = [];
+            //Parseamos el string con JSTS para hacer detección de colisión
+
+            //Iteramos el array de strings WKT de los poligonos existentes
+                arrays.forEach(function (area) {
+
+            //    //Parseamos el string con JSTS para hacer detección de colisión
+                JTSAreasExistentes.push(JTSreader.read(area));
+
+            //    //Parseamos el string con Wicket para agregarlo al mapa
+                var areaExistenteWKT = new Wkt.Wkt();
+                areaExistenteWKT.read(area);
+
+                var poligonoAreaExistente = areaExistenteWKT.toObject();
+                var polyExistenteOptions = {
+                    map: map,
+                    editable: false,
+                    draggable: false,
+                    strokeColor: '#000000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#000000',
+                    fillOpacity: 0.35
+                };
+
+                poligonoAreaExistente.setOptions(polyExistenteOptions);
+
+            });
         }
-    Productos
-    <ul>
-        @foreach (var p in Repository.List<Producto>(new ProductosSpec()))
-        {
-            <li>@p.Nombre @p.Categoria @p.UnidadMedida</li>
-        }
-    </ul>
+    </script>
+}

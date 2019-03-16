@@ -19,6 +19,11 @@ namespace CleanArchitecture.Web.Controllers
             return View();
         }
 
+        public IActionResult Crear()
+        {
+            return View("CrearEditar");
+        }
+
         public IActionResult Error()
         {
             return View();
